@@ -1,3 +1,4 @@
+import { NasaModule } from './nasa/nasa.module';
 import { errorInterceptor } from './helpers/error.interceptor';
 import { AuthService } from './shared/services/auth.service';
 import { fakeBackendProvider } from './helpers/fakebackend.provider';
@@ -26,7 +27,7 @@ import { HomeComponent } from './app-components/home/home.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-  
+    NasaModule,
     SharedModule
   ],
   providers: [
