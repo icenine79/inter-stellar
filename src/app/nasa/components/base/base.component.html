@@ -1,13 +1,13 @@
 <div class="container">
     <div class="row">
         <div class="col-md-3">
-            <app-left></app-left>
+            <app-left (selectedCamera)="receivedCamera($event)"></app-left>
         </div>
         <div class="col-md-6">
-            <app-content></app-content>
+            <app-content [pictureObject]="pictureObject"></app-content>
         </div>
         <div class="col-md-3">
-            <app-right></app-right>
+            <app-right [cameraData]="cameraData"></app-right>
         </div>
     </div>
 </div>

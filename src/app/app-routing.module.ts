@@ -9,8 +9,9 @@ const routes: Routes = [
   {path: '', component: ShellComponent,
     children:[
         {path:'home', component: HomeComponent},
+        { path: 'nasa', loadChildren: nasa },
         { path: '', redirectTo: 'home', pathMatch: 'full' },
-        { path: 'nasa', loadChildren: nasa }
+     
     ]
     }
 ];

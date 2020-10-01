@@ -1,1 +1,14 @@
-<p>content works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card mat-elevation-z8" style="width: 18rem;" *ngFor=" let p of pictureObject">
+                <img class="card-img-top" src="{{p.hdurl}}" alt="{{p.title}}">
+                <div class="card-body">
+                  <h2 class="card-title">{{p.title}}</h2>
+                  <h4 class="card-title">{{p.date}}</h4>
+                  <a [routerLink]="['/detail',p.title]" class="btn btn-primary">See in detail</a>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { cameras } from './../../../global definitions/globals';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-left',
@@ -6,10 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./left.component.scss']
 })
 export class LeftComponent implements OnInit {
-
+camera='';
+@Output() selectedCamera: EventEmitter<any>= new EventEmitter<any>()
+readonly cameras = cameras;
   constructor() { }
 
   ngOnInit(): void {
   }
-
+  searchByCamera(){
+    this.selectedCamera.emit(this.camera)
+  }
 }

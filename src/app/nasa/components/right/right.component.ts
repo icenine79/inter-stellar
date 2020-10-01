@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-right',
@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./right.component.scss']
 })
 export class RightComponent implements OnInit {
-
+@Input() cameraData:any;
   constructor() { }
 
   ngOnInit(): void {

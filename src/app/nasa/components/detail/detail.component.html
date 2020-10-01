@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12" *ngFor="let d of detailedPicture">
+            <mat-card class="example-card">
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{d.title}}</mat-card-title>
+
+                </mat-card-header>
+                <img mat-card-image src="{{d.hdurl}}" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                    <p>
+                        {{d.explanation}}
+                    </p>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+    </div>
+</div>
