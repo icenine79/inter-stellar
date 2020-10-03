@@ -1,4 +1,4 @@
-import { cameras } from './../../../global definitions/globals';
+import { cameras } from './../../../global-features/globals';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -9,7 +9,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class LeftComponent implements OnInit {
 camera='';
 @Output() selectedCamera: EventEmitter<any>= new EventEmitter<any>()
-readonly cameras = cameras;
+readonly cameras = cameras
   constructor() { }
 
   ngOnInit(): void {

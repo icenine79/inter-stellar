@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from './material/material.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +30,7 @@ import { MaterialModule } from './material/material.module';
     ShellComponent,
     NavbarComponent,
     RegisterComponent,
-    SummaryPipe
+    SummaryPipe,
 
   ],
   imports: [
@@ -42,12 +43,13 @@ import { MaterialModule } from './material/material.module';
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
+
   ],
   providers: [
     fakeBackendProvider,
     errorInterceptor,
     //tokenInterceptor,
-    HttpClient
+    HttpClient,
   ],
   bootstrap: [AppComponent]
 })
