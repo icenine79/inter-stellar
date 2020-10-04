@@ -21,12 +21,14 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  
-  }
 
- 
+  }
+isLoggedIn(){
+  this.auth.isLoggedIn();
+}
+
   logOut() {
-  
+this.auth
   }
   editCredentials(id) {
     this.isMenuCollapsed = true;

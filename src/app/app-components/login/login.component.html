@@ -1,1 +1,40 @@
-<p>login works!</p>
+<mat-progress-spinner></mat-progress-spinner>
+
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-md-6 offset-md-3">
+          <div class="centered ">
+            <mat-card>
+                <mat-card-title>Login</mat-card-title>
+                <mat-card-content>
+                    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                        <mat-form-field>
+                            <input type="text" matInput placeholder="Username" formControlName="username">
+                            <div *ngIf="username.touched && username.invalid">
+                                <mat-error *ngIf="username.errors.required">Username is required</mat-error>
+                            </div>
+
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input type="password" matInput placeholder="Password" formControlName="password">
+                            <div *ngIf="password.touched && password.invalid">
+                                <mat-error *ngIf="password.errors.required">Password is required</mat-error>
+                            </div>
+                        </mat-form-field>
+
+                        <div class="button">
+                            <button class="dist" type="submit" mat-raised-button color="primary">Login</button>
+
+                            <a class="dist" mat-raised-button routerLink="/register" color="warn">or register</a>
+                          </div>
+                    </form>
+                </mat-card-content>
+            </mat-card>
+          </div>
+            <div *ngIf="successMessage">{{successMessage}}</div>
+        </div>
+    </div>
+</div>
