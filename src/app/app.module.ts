@@ -42,7 +42,7 @@ import { MaterialModule } from './material/material.module';
     BrowserAnimationsModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule,
+    FormsModule
 
   ],
   providers: [
@@ -50,6 +50,7 @@ import { MaterialModule } from './material/material.module';
     errorInterceptor,
     //tokenInterceptor,
     HttpClient,
+    NasaService
   ],
   bootstrap: [AppComponent]
 })

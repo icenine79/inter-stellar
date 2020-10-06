@@ -4,6 +4,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/operators';
+import { User } from '../../global-features/models/User';
 @Injectable({
   providedIn: 'root'
 })
@@ -35,6 +36,11 @@ getPicByCamera(camera: string){
   return res;
   }))
 }
+
+getUserById(id): Observable<User>{
+  return this.http.get<User>(`/users/${id}`)
+}
+
 
 
 

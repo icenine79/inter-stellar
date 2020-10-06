@@ -11,9 +11,8 @@
          <a class="nav-link" routerLink="/home"  (click)="isMenuCollapsed = true">Home</a>
        </li>
       <li class="nav-item active">
-       <!--   <a class="nav-link edit" (click)="editCredentials(user.id)">Edit
+         <a class="nav-link edit" (click)="editCredentials(user.id)">Edit
            Credentials</a>
-       </li>  -->
 
        <li class="nav-item">
          <a class="nav-link" *ngIf='isLoggedIn()' routerLink="/login"  (click)="isMenuCollapsed = true">Login</a>
@@ -22,10 +21,13 @@
           <a class="nav-link" (click)="logOut()" >Log Out</a>
        </li>
        <li class="nav-item">
-         <a class="nav-link" *ngIf='isLoggedIn()' routerLink="/register"  (click)="isMenuCollapsed = true">Sign Up</a>
+         <a class="nav-link"  routerLink="/register"  (click)="isMenuCollapsed = true">Sign Up</a>
        </li>
-       <li class="nav-item">
 
+      <!--  <li class="nav-item">
+        <a class="nav-link"   routerLink="/admin"  (click)="isMenuCollapsed = true">Admin</a>
+      </li>
+ -->
 
 
 

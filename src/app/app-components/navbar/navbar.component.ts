@@ -27,8 +27,10 @@ isLoggedIn(){
   this.auth.isLoggedIn();
 }
 
+
+
   logOut() {
-this.auth
+this.auth.logOut()
   }
   editCredentials(id) {
     this.isMenuCollapsed = true;

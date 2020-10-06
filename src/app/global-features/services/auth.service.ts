@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/User';
@@ -25,7 +26,8 @@ export class AuthService {
     this.currentUserSubject.next(null);
     this.router.navigate(['/login'])
   }
-  /* public get isAdmin(): boolean {
+
+ /*  isAdmin(): boolean {
     const user = JSON.stringify(localStorage.getItem('currentUser'));
     const decoded = this.helper.decodeToken(user);
     if (decoded['isAdmin'] == true) {
@@ -33,8 +35,8 @@ export class AuthService {
     }
     return false
 
-  } */
-
+  }
+ */
   isLoggedIn(): boolean {
     const user = JSON.stringify(localStorage.getItem('currentUser'));
     return (user != null || user != undefined) ? true : false
@@ -46,5 +48,24 @@ logIn(credentials:any) {
     localStorage.setItem('currentUser', JSON.stringify(user))
     return user;
   }))
+}
+
+register(credentials:any){
+  console.log(credentials)
+  return this.http.post('/users/register', credentials);
+}
+
+editUser(id,params){
+  return this.http.put(`/users/${id}`, params)
+  .pipe(map(x=>{
+    if(id===this.currenUserSubjectValue.id){
+      //updateLicalStorage
+      const user = {...this.currentUser, ...params}
+      localStorage.setItem('currentUser', JSON.stringify(user))
+      //publish updated user
+      this.currentUserSubject.next(user)
+    }
+    return x;
+   }))
 }
 }
