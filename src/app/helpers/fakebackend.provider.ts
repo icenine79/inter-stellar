@@ -93,6 +93,7 @@ return ok({
           id: user.id,
           username: user.username,
           email: user.email,
+          likes:null,
           token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwidXNlcm5hbWUiOiJ2aXRvciIsImlhdCI6MTUxNjIzOTAyMiwiaXNBZG1pbiI6dHJ1ZX0.R1Uz3yguPXWEtz8DXsVAR99XkxOfilPmBcZTE2rpstE',
           message: 'Welcome back Admin!'
         })

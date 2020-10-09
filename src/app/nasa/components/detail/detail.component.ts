@@ -16,7 +16,7 @@ export class DetailComponent implements OnInit {
   likes:number=0;
   receivedLikes:any
   constructor(private route: ActivatedRoute, private router: Router, private nasaService: NasaService, private auth:AuthService) {
-    this.auth.currentUser.subscribe(user=>{
+    this.auth.currentUser.subscribe((user:User)=>{
       this.user=user;
     })
   }
