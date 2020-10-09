@@ -1,0 +1,29 @@
+<div class="example-sidenav-content">
+
+
+  <button type="button" mat-button (click)="drawer.toggle()">
+    <mat-icon aria-hidden="false" aria-label="Example home icon">view_headline</mat-icon>
+  </button>
+</div>
+
+
+
+      <mat-drawer-container class="example-container" autosize>
+
+        <mat-drawer #drawer class="example-sidenav" mode="side">
+          <div class="menu">
+            <ul class="list-group">
+              <a routerLink="/home" class="list-group-item">Home</a>
+              <a routerLink="/nasa" class="list-group-item">Nasa</a>
+              <a routerLink="/register" class="list-group-item">Register</a>
+              <a routerLink="/login" class="list-group-item">Login</a>
+              <a class="list-group-item">Vestibulum at eros</a>
+            </ul>
+          </div>
+        </mat-drawer>
+
+
+
+      </mat-drawer-container>
+.0
+

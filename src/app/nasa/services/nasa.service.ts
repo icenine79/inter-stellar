@@ -42,6 +42,11 @@ getUserById(id): Observable<User>{
 }
 
 
+//FAKEBACKEND
 
+likePicture(picture, user){
+  console.log(user)
+  return this.http.post('/picture/like', picture,user);
+}
 
 }

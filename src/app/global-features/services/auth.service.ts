@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { User } from '../models/User';
@@ -27,7 +26,7 @@ export class AuthService {
     this.router.navigate(['/login'])
   }
 
- /*  isAdmin(): boolean {
+  /*  isAdmin(): boolean {
     const user = JSON.stringify(localStorage.getItem('currentUser'));
     const decoded = this.helper.decodeToken(user);
     if (decoded['isAdmin'] == true) {

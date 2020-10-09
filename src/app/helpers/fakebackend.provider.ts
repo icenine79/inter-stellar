@@ -5,16 +5,17 @@ import { mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 
 let users = JSON.parse(localStorage.getItem('users')) || [];
+let likes = JSON.parse(localStorage.getItem('likes')) || [];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const { url, method, headers, body } = request;
 
-  
+
     return of(null)
       .pipe(mergeMap(handleRoute))
-      .pipe(materialize()) 
+      .pipe(materialize())
       .pipe(dematerialize());
 
     function handleRoute() {
@@ -23,6 +24,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return register();
         case url.endsWith('/users/authenticate') && method === 'POST':
           return authenticate();
+          case url.endsWith('/picture/like') && method === 'POST':
+          return pictureLike();
         case url.endsWith('/users') && method === 'GET':
           return getUsers();
         case url.match(/\/users\/\d+$/) && method === 'GET':
@@ -32,14 +35,14 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         case url.match(/\/users\/\d+$/) && method === 'DELETE':
           return deleteUser();
         default:
-       
+
           return next.handle(request);
       }
     }
 
     function updateUser() {
       if (!isLoggedIn()) return unauthorized();
- 
+
       let params = body;
       let user = users.find(x => x.id === idFromUrl());
 
@@ -54,7 +57,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
       return ok();
   }
+function pictureLike(){
+const like = body
+console.log(body)
 
+likes.push(like)
+localStorage.setItem('likes', JSON.stringify(likes));
+return ok({
+  message: 'like added'
+})
+}
     function register() {
       const user = body
 
@@ -93,7 +105,7 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         })
       }
 
-     
+
     }
 
     function getUsers() {
@@ -103,13 +115,13 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 
     function getUserById() {
       if (!isLoggedIn()) return unauthorized();
- 
+
       const user = users.find(x => x.id == idFromUrl());
       return ok(user);
     }
 
     function deleteUser() {     if (!isLoggedIn()) return unauthorized();
- 
+
       users = users.filter(x => x.id !== idFromUrl());
       localStorage.setItem('users', JSON.stringify(users));
       return ok({message:'DeletedUser'});

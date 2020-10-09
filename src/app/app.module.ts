@@ -20,6 +20,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from './material/material.module';
+import { SideNavComponent } from './app-components/side-nav/side-nav.component';
 
 
 @NgModule({
@@ -31,7 +32,7 @@ import { MaterialModule } from './material/material.module';
     NavbarComponent,
     RegisterComponent,
     SummaryPipe,
-
+    SideNavComponent
   ],
   imports: [
     BrowserModule,

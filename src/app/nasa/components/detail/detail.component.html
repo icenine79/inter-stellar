@@ -1,20 +1,31 @@
 <div class="container">
-    <div class="row">
+    <div class="row" *ngIf="detailedPicture">
         <div class="col-md-12" *ngFor="let d of detailedPicture">
-            <mat-card class="example-card">
+            <mat-card class="mat-elevation-z8">
                 <mat-card-header>
-                    <div mat-card-avatar class="example-header-image"></div>
-                    <mat-card-title>{{d.title}}</mat-card-title>
+                    <mat-card-title class="text-center">{{d.title}}</mat-card-title>
 
                 </mat-card-header>
-                <img mat-card-image src="{{d.hdurl}}" alt="Photo of a Shiba Inu">
+                <img  #picture mat-card-image src="{{d.hdurl}}" alt="{{d.title}}">
                 <mat-card-content>
                     <p>
                         {{d.explanation}}
                     </p>
                 </mat-card-content>
+                <mat-card-actions>
+                  <button mat-raised-button color="warn" [(ngModel)]="likes" (click)="like()">LIKE</button>
+                </mat-card-actions>
             </mat-card>
 
         </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <ul class="list-group" *ngFor="let r of receivedLikes">
+          <li class="list-group-item">
+            {{r}}
+          </li>
+        </ul>
+      </div>
     </div>
 </div>

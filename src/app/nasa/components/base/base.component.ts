@@ -1,12 +1,13 @@
 import { map } from 'rxjs/operators';
 import { NasaService } from './../../services/nasa.service';
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DayPicture } from '../../models/DayPicture';
 
 @Component({
   selector: 'app-base',
   templateUrl: './base.component.html',
-  styleUrls: ['./base.component.scss']
+  styleUrls: ['./base.component.scss'],
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class BaseComponent implements OnInit {
 pictureObject: DayPicture[];
@@ -19,7 +20,7 @@ cameraData:any[];
       this.pictureObject=Array.of(data)
 
     })
-      
+
   }
 getPicByCamera(){
 }
