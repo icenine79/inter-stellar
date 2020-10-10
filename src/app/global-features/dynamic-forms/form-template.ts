@@ -1,8 +1,9 @@
+import { Validators } from "@angular/forms"
 
 const formTemplate= [
  {
   type: "text",
-  label: "name",
+  label: "username",
   required: Validators.required,
   class: 'form-control',
   name: 'name'
@@ -32,14 +33,14 @@ const formTemplate= [
   type: "password",
   label: "password",
   name: "password",
-  required: PasswordValidator.passwordShouldMatch,
+  required: Validators.required,
   class: 'form-control'
 },
 {
   type: "password",
   label: "retype",
   name: "retype",
-  required: PasswordValidator.passwordShouldMatch,
+  required: Validators.required,
   class: 'form-control'
 },
 {

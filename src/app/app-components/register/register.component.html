@@ -1,67 +1,34 @@
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 offset md-3">
+´
+                <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                  <div *ngFor="let input of formTemplate; let i=index">
+                      <div [ngSwitch]="input.label">
+                          <div *ngSwitchCase="'username'">
+                              <input type="text" class="{{input.class}}" placeholder={{input.name}}
+                                  formControlName="{{input.name}}" required={{input.required}} />
+                              <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+                                  <div *ngIf="username.errors.required">username is required</div>
+                              </div>
 
+                          </div>
 
+                          <div *ngSwitchCase="'password'">
+                              <input type="password" class="{{input.class}}" placeholder={{input.name}}
+                                  formControlName="{{input.name}}" required={{input.required}} />
+                              <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                                  <div *ngIf="password.errors.required">Passowrd is required</div>
+                              </div>
 
+                          </div>
 
+                      </div>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Sign In</button>
+              </form>
 
-
-
-<div class="row">
-<div class="col-md-6 offset-md-3">
-  <mat-card class="example-card">
-    <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
-      <mat-card-title>Shiba Inu</mat-card-title>
-      <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header>
-    <div class="wrapper">
-
-    <img mat-card-image class="img-fluid" src="assets/registerdoor.jpg" alt="Photo of a Shiba Inu">
+      </div>
   </div>
-    <mat-card-content>
-      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
 
-        <mat-form-field>
-          <mat-label>Username</mat-label>
-          <mat-icon style="color:black" matSuffix>person</mat-icon>
-          <input matInput formControlName="username" placeholder="Enter username">
-          <mat-error *ngIf="username.touched && username.invalid">
-            <mat-error *ngIf="username.errors.required">
-              Username is <strong>required</strong>
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Email</mat-label>
-          <mat-icon matSuffix>email</mat-icon>
-          <input type="email" matInput formControlName="email"
-
-            placeholder="Enter email">
-          <mat-error *ngIf="email.touched && email.invalid">
-            <mat-error *ngIf="email.errors.required">
-              email is <strong>required</strong>
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-        <mat-form-field>
-          <mat-label>Password</mat-label>
-          <mat-icon matSuffix>keyboard</mat-icon>
-          <input type="password" matInput formControlName="password"
-
-            placeholder="Enter password">
-          <mat-error *ngIf="password.touched && password.invalid">
-            <mat-error *ngIf="password.errors.required">
-              Password is <strong>required</strong>
-            </mat-error>
-          </mat-error>
-        </mat-form-field>
-        <button [disabled]="registerForm.invalid" type="submit"  mat-raised-button color="primary">Register</button>
-        <button *ngIf="editMode" type="submit" (click)="editUser()"   mat-raised-button color="warn">Edit</button>
-      </form>
-    </mat-card-content>
-    <mat-card-actions>
-
-
-    </mat-card-actions>
-  </mat-card>
-
-
+</div>

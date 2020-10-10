@@ -5,13 +5,14 @@ import { AuthService } from './../../global-features/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { first, switchMap } from 'rxjs/operators';
 import { User } from '../../global-features/models/User';
+import { Form } from '../../global-features/dynamic-forms/Form';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class RegisterComponent extends Form implements OnInit {
 registerForm: FormGroup
 id:any
 user: User;
@@ -21,13 +22,13 @@ editMode:boolean;
     private route:ActivatedRoute,
     private fb: FormBuilder,
      private router: Router,
-     private nasa: NasaService) { }
+     private nasa: NasaService) {super() }
 
   ngOnInit(): void {
+    this.formBuilder()
     //checkUrl
     if(this.router.url.match('/edit/'))
       this.editMode=true;
-      this.registrationForm();
 
     //Get user params
 

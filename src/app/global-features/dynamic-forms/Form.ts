@@ -15,8 +15,8 @@ export class Form {
     });
     this.form = new FormGroup(group);
   }
-  get name() {
-    return this.form.get('name');
+  get username() {
+    return this.form.get('username');
   }
   get age() {
     return this.form.get('age');
