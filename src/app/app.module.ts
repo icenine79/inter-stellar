@@ -21,6 +21,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from './material/material.module';
 import { SideNavComponent } from './app-components/side-nav/side-nav.component';
+import { DayPictureComponent } from './app-components/day-picture/day-picture.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { SideNavComponent } from './app-components/side-nav/side-nav.component';
     NavbarComponent,
     RegisterComponent,
     SummaryPipe,
-    SideNavComponent
+    SideNavComponent,
+    DayPictureComponent
   ],
   imports: [
     BrowserModule,

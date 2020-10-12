@@ -1,34 +1,44 @@
 <div class="container">
   <div class="row">
-      <div class="col-md-6 offset md-3">
-´
-                <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                  <div *ngFor="let input of formTemplate; let i=index">
-                      <div [ngSwitch]="input.label">
-                          <div *ngSwitchCase="'username'">
-                              <input type="text" class="{{input.class}}" placeholder={{input.name}}
-                                  formControlName="{{input.name}}" required={{input.required}} />
-                              <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
-                                  <div *ngIf="username.errors.required">username is required</div>
-                              </div>
+    <div class="col-md-6 offset-md-3">
 
-                          </div>
 
-                          <div *ngSwitchCase="'password'">
-                              <input type="password" class="{{input.class}}" placeholder={{input.name}}
-                                  formControlName="{{input.name}}" required={{input.required}} />
-                              <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
-                                  <div *ngIf="password.errors.required">Passowrd is required</div>
-                              </div>
+<mat-card class="example-card mat-elevation-z8">
+  <mat-card-header>
 
-                          </div>
+    <mat-card-title >Register</mat-card-title>
+  </mat-card-header>
+  <img mat-card-image src="assets/registerdoor.jpg" class="img-fluid" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div *ngFor="let input of formTemplate; let i = index">
+        <div [ngSwitch]="input.label">
+          <div *ngSwitchCase="'username'">
+            <input
+              type="text"
+              class="{{ input.class }}"
+              placeholder="{{ input.name }}"
+              formControlName="{{ input.name }}"
+              required="{{ input.required }}"
+            />
 
-                      </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Sign In</button>
-              </form>
+          </div>
 
+          <div *ngSwitchCase="'password'">
+            <input
+              type="password"
+              class="{{ input.class }}"
+              placeholder="{{ input.name }}"
+              formControlName="{{ input.name }}"
+              required="{{ input.required }}"
+            />
+          </div>
+        </div>
       </div>
-  </div>
-
+      <button type="submit" mat-raised-button color="primary">Sign In</button>
+</form>
+  </mat-card-content>
+ </mat-card>
+</div>
+</div>
 </div>

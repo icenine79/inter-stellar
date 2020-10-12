@@ -15,7 +15,7 @@ cameraData:any[];
   constructor(private nasaService: NasaService) { }
 
   ngOnInit(): void {
-    this.nasaService.getDayPictre()
+    this.nasaService.getDayPicture()
     .subscribe((data:DayPicture)=>{
       this.pictureObject=Array.of(data)
 

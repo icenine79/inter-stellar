@@ -13,7 +13,7 @@ export class NasaService {
   constructor(private http: HttpClient) { }
 
 
-  getDayPictre(): Observable<DayPicture> {
+  getDayPicture(): Observable<DayPicture> {
     return this.http.get<DayPicture>(environment.dayPicture);
   }
 

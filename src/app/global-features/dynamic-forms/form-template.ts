@@ -6,7 +6,7 @@ const formTemplate= [
   label: "username",
   required: Validators.required,
   class: 'form-control',
-  name: 'name'
+  name: 'username'
 },
 {
   type: "number",

@@ -13,7 +13,6 @@ import { Form } from '../../global-features/dynamic-forms/Form';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent extends Form implements OnInit {
-registerForm: FormGroup
 id:any
 user: User;
 editMode:boolean;
@@ -25,6 +24,7 @@ editMode:boolean;
      private nasa: NasaService) {super() }
 
   ngOnInit(): void {
+    console.log(localStorage.getItem('currentUser'))
     this.formBuilder()
     //checkUrl
     if(this.router.url.match('/edit/'))
@@ -32,30 +32,28 @@ editMode:boolean;
 
     //Get user params
 
-    this.route.paramMap.pipe(switchMap(params=>{
+    /* this.route.paramMap.pipe(switchMap(params=>{
       this.id= params.get('id')
        return this.nasa.getUserById(this.id)
 
        })).subscribe(user=>{
          this.user=user;
-       })
+       }) */
 
 //RegisterForm
 
   }
 
-get username(){return this.registerForm.get('username')}
 
-get email(){return this.registerForm.get('email')}
-get password(){return this.registerForm.get('password')}
 
 onSubmit(){
-  if(this.registerForm.invalid)return
+
+  if(this.form.invalid)return
   let credentials={
     username: this.username.value,
-    email: this.email.value,
     password: this.password.value
   }
+
   this.auth.register(credentials)
   .subscribe((data:Response)=>{
     console.log(data)
@@ -65,15 +63,9 @@ onSubmit(){
 
 
 }
-registrationForm(){
-  this.registerForm= this.fb.group({
-    username:['', Validators.required],
-    email:['', Validators.required],
-    password:[null, Validators.required]
-  })
-}
+
 editUser() {
-  this.auth.editUser(this.id, this.registerForm.value)
+  this.auth.editUser(this.id, this.form.value)
     .pipe(first())
     .subscribe(
       data => {

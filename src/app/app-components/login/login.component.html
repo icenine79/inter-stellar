@@ -5,11 +5,11 @@
                 <form [formGroup]="form" (ngSubmit)="onSubmit()">
                   <div *ngFor="let input of formTemplate; let i=index">
                       <div [ngSwitch]="input.label">
-                          <div *ngSwitchCase="'email'">
-                              <input type="email" class="{{input.class}}" placeholder={{input.name}}
+                          <div *ngSwitchCase="'username'">
+                              <input type="text" class="{{input.class}}" placeholder={{input.name}}
                                   formControlName="{{input.name}}" required={{input.required}} />
-                              <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
-                                  <div *ngIf="email.errors.required">Email is required</div>
+                              <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+                                  <div *ngIf="username.errors.required">username is required</div>
                               </div>
 
                           </div>
