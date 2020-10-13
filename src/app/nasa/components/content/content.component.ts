@@ -1,6 +1,6 @@
 import { SummaryPipe } from './../../../helpers/pipes/summary-pipe';
 import { DayPicture } from './../../models/DayPicture';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, OnChanges, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-content',
@@ -12,8 +12,12 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 export class ContentComponent implements OnInit {
 
 @Input() pictureObject: DayPicture[]
+spinner:boolean=true;
   constructor() { }
 
+  ngOnChanges(changes:SimpleChange){
+      console.log(changes)
+  }
   ngOnInit(): void {
   }
 

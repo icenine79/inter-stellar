@@ -1,1 +1,20 @@
-<p>day-picture works!</p>
+<div class="container" *ngIf="pictureObject">
+  <div class="row" *ngFor="let p of pictureObject">
+    <div class="col-md-5" >
+      <mat-card class="mat-elevation-z8" >
+        <mat-card-title>{{ p.title }}</mat-card-title>
+        <mat-card-subtitle>Date: {{ p.date }}</mat-card-subtitle>
+        <img mat-card-image src="{{ p.url }}" alt="{{p.title}}" />
+        <mat-card-content>
+          <a [routerLink]="['/detail', p.title]" class="btn btn-primary"
+            >See in detail</a>
+        </mat-card-content>
+
+      </mat-card>
+    </div>
+    <div class="col-md-7">
+      <h3>{{p.explanation}}</h3>
+    </div>
+  </div>
+</div>
+

@@ -1,3 +1,4 @@
+import { DayPictureComponent } from './app-components/day-picture/day-picture.component';
 import { LoginComponent } from './app-components/login/login.component';
 import { HomeComponent } from './app-components/home/home.component';
 import { ShellComponent } from './app-components/shell/shell.component';
@@ -11,6 +12,8 @@ const routes: Routes = [
   {path: '', component: ShellComponent,
     children:[
         {path:'home', component: HomeComponent},
+        {path:'day', component: DayPictureComponent},
+
         { path: 'nasa', loadChildren: nasa },
         { path: 'admin', loadChildren: admin },
 
