@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <button mat-raised-button color='primary' (click)="isCollapsed = !isCollapsed">Biography</button>
+      <div [@smoothCollapse]="isCollapsed?'initial':'final'">
+        <img src="assets/me.png" class="img-fluid">
+        <h2 class="mat-h2">Biography</h2>
+
+
+        <h3 class="mat-h2">
+          My name is Vítor Ferreira and I was born in 19/09/1979 in Ponte de Lima,
+          currently I live in Lisbon after having my bachelor degree in Coimbra (Linguistics)
+
+          I took a Masters degree in book publishing (FCSH de Lisboa) and after a long period working as
+        freelance journalist and as a editorial assistant, I decided to have a complete turnover on my professional career.
+          <br>Took a professional course on web development (mobile and web) in Flag school where I learned HTML5, CSS3,
+          JavaScript, jQuery, PHP, MySQL and native mobile such as Android and IOS (Objective-C)
+          After a quick internship at Ogilvy and Mather, I decided to become a Front End Developer so I learned Angular (v4)
+
+          in Udemy online school (several courses). Since then, my professional life has been dealing with this powerfull framework
+
+
+        </h3>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
