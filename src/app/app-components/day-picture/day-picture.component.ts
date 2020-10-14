@@ -14,6 +14,7 @@ export class DayPictureComponent implements OnInit {
   ngOnInit(): void {
     this.nasaService.getDayPicture()
     .subscribe((data:DayPicture)=>{
+      console.log(this.pictureObject)
       this.pictureObject=Array.of(data)
 
     })

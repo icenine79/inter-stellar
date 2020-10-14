@@ -1,5 +1,4 @@
 import { cameras, displayedColumns } from './../../../global-features/globals';
-import { map } from 'rxjs/operators';
 import { NasaService } from './../../services/nasa.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DayPicture } from '../../models/DayPicture';
@@ -15,6 +14,7 @@ export class BaseComponent implements OnInit {
 pictureObject: DayPicture[];
 rover: RoverCamera[];
 dataSource: RoverCamera[];
+nodata:boolean;
 readonly cameras = cameras;
 readonly displayedColumns = displayedColumns;
 

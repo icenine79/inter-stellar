@@ -1,6 +1,11 @@
+
+
+
 example-card {
   width:100%;
   max-width: 400px;
+  position:absolute;
+  z-index:999
 }
 
 button{width:100%}
