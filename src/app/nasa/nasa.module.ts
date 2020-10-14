@@ -6,6 +6,7 @@ import { LeftComponent } from './components/left/left.component';
 import { RightComponent } from './components/right/right.component';
 import { NasaRoutingModule } from './nasa-routing.module';
 import { SummaryPipe } from '../helpers/pipes/summary-pipe';
+import { MarsDetailComponent } from './components/mars-detail/mars-detail.component';
 
 
 
@@ -14,6 +15,7 @@ import { SummaryPipe } from '../helpers/pipes/summary-pipe';
     BaseComponent,
     LeftComponent,
     RightComponent,
+    MarsDetailComponent,
 
 
   ],

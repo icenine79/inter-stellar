@@ -29,6 +29,17 @@ export class NasaService {
   }
 //ROVERS
 
+/* getPictureByRover(id:any){
+  return this.http.get(environment.camUrl+id+environment.apiKey)
+  .pipe(map(result=>{
+    let res:any[]=result['photos']
+    let final = res.map(x=>x['img_src'])
+    console.log(final)
+    return final;
+  }))
+} */
+
+
 getPicByCamera(camera: string){
   return this.http.get<any>(environment.camUrl+camera+environment.apiKey)
   .pipe(map(result=>{
