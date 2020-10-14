@@ -1,15 +1,29 @@
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <mat-card class="example-card" *ngFor="let c of cameraData">
-                <mat-card-header >
-                  <div mat-card-avatar class="example-header-image"></div>
-                 
-                </mat-card-header>
-                <img mat-card-image src="{{c}}" alt="Photo of a Shiba Inu">
-               
-              </mat-card>
-              
-        </div>
+
+
+<mat-table *ngIf="!display"   [dataSource]="dataSource" class="mat-elevation-z8">
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> Id </mat-header-cell>
+    <mat-cell *matCellDef="let r"> {{r.id}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="sol">
+    <mat-header-cell *matHeaderCellDef> Sol </mat-header-cell>
+    <mat-cell *matCellDef="let r"> {{r.sol}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="earth_date">
+    <mat-header-cell *matHeaderCellDef> Earth Date </mat-header-cell>
+    <mat-cell *matCellDef="let r"> {{r.earth_date}} </mat-cell>
+  </ng-container>
+  <ng-container matColumnDef="img_source">
+    <mat-header-cell *matHeaderCellDef> Rover Image </mat-header-cell>
+    <mat-cell *matCellDef="let r">
+      <div class="img-wrapper" >
+        <a [routerLink]="['/mars-detail', r.id]">
+          <img  class="img-fluid" src="{{r.img_src}}" alt="rover camera">
+        </a>
     </div>
-</div>
+    </mat-cell>
+  </ng-container>
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+

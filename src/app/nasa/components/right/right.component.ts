@@ -1,4 +1,7 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, OnChanges } from '@angular/core';
+import { RoverCamera } from '../../../global-features/models/RoverCameras';
+import { DayPicture } from '../../models/DayPicture';
 
 @Component({
   selector: 'app-right',
@@ -7,9 +10,18 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RightComponent implements OnInit {
-@Input() cameraData:any;
+  @Input('rover') rover: RoverCamera[];
+  @Input('dataSource') dataSource: RoverCamera[];
+  @Input('displayedColumns') displayedColumns: any[];
+  display:boolean=false
+
   constructor() { }
 
+  ngOnChanges(changes:SimpleChanges){
+    if (this.rover && this.rover.length >0) {
+          this.display = false;
+        }
+      }
   ngOnInit(): void {
   }
 

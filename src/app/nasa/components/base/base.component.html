@@ -3,11 +3,11 @@
         <div class="col-md-3">
             <app-left (selectedCamera)="receivedCamera($event)"></app-left>
         </div>
-        <div class="col-md-6">
-            <app-content [pictureObject]="pictureObject"></app-content>
-        </div>
-        <div class="col-md-3">
-            <app-right [cameraData]="cameraData"></app-right>
-        </div>
+        <div class="col-md-9">
+          <app-right
+          [rover]="rover"
+          [dataSource]="dataSource"
+          [displayedColumns]="displayedColumns">
+        </app-right>
     </div>
 </div>

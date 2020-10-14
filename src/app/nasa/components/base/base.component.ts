@@ -1,7 +1,9 @@
+import { cameras, displayedColumns } from './../../../global-features/globals';
 import { map } from 'rxjs/operators';
 import { NasaService } from './../../services/nasa.service';
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { DayPicture } from '../../models/DayPicture';
+import { RoverCamera } from '../../../global-features/models/RoverCameras';
 
 @Component({
   selector: 'app-base',
@@ -11,8 +13,12 @@ import { DayPicture } from '../../models/DayPicture';
 })
 export class BaseComponent implements OnInit {
 pictureObject: DayPicture[];
-cameraData:any[];
-  constructor(private nasaService: NasaService) { }
+rover: RoverCamera[];
+dataSource: RoverCamera[];
+readonly cameras = cameras;
+readonly displayedColumns = displayedColumns;
+
+constructor(private nasaService: NasaService) { }
 
   ngOnInit(): void {
     this.nasaService.getDayPicture()
@@ -27,10 +33,8 @@ getPicByCamera(){
 
 receivedCamera(camera){
   this.nasaService.getPicByCamera(camera)
-  .subscribe(data=>{
-this.cameraData=data.map(x=>x['img_src']);
-console.log(this.cameraData)
-
+  .subscribe(pictures=>{
+    this.rover = this.dataSource= pictures;
   })
 
 

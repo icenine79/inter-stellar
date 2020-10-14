@@ -1,11 +1,9 @@
 
-
-
 <mat-form-field style="width:100%;">
-    <mat-label>Choose a Camera</mat-label>
-    <mat-select [(value)]="camera" (selectionChange)="searchByCamera() ">
-      <mat-option *ngFor="let c of cameras" [value]="c">
-        {{c}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <mat-label>Choose a Camera</mat-label>
+  <mat-select [(value)]="camera" (selectionChange)="searchByCamera() ">
+    <mat-option *ngFor="let c of cameras" [value]="c.name">
+      {{c.fullname}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

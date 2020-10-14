@@ -32,6 +32,8 @@ export class NasaService {
 getPicByCamera(camera: string){
   return this.http.get<any>(environment.camUrl+camera+environment.apiKey)
   .pipe(map(result=>{
+    console.log(result)
+    console.log(result['camera'])
     let res: any[]=result['photos']
   return res;
   }))
