@@ -5,7 +5,7 @@ import { mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 
 let users = JSON.parse(localStorage.getItem('users')) || [];
-let likes = JSON.parse(localStorage.getItem('likes')) || [];
+let pictures = JSON.parse(localStorage.getItem('pictures')) || [];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -24,8 +24,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return register();
         case url.endsWith('/users/authenticate') && method === 'POST':
           return authenticate();
-          case url.endsWith('/picture/like') && method === 'POST':
+          case url.endsWith('/likedaypic') && method === 'POST':
           return pictureLike();
+          case url.endsWith('/pictures') && method === 'GET':
+            return getPictures();
         case url.endsWith('/users') && method === 'GET':
           return getUsers();
         case url.match(/\/users\/\d+$/) && method === 'GET':
@@ -58,13 +60,13 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       return ok();
   }
 function pictureLike(){
-const like = body
-console.log(body)
+const picture = body
 
-likes.push(like)
-localStorage.setItem('likes', JSON.stringify(likes));
+pictures.push(picture)
+localStorage.setItem('pictures', JSON.stringify(pictures));
 return ok({
-  message: 'like added'
+  message: 'like!!',
+  pics: pictures
 })
 }
     function register() {
@@ -113,7 +115,9 @@ return ok({
      // if (!isLoggedIn()) return unauthorized();
       return ok(users);
     }
-
+function getPictures(){
+  return ok(pictures)
+}
     function getUserById() {
       if (!isLoggedIn()) return unauthorized();
 
