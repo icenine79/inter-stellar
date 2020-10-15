@@ -1,3 +1,4 @@
+
 import { SummaryPipe } from './helpers/pipes/summary-pipe';
 import { HttpClientModule } from '@angular/common/http';
 import { NasaService } from './nasa/services/nasa.service';
@@ -23,6 +24,8 @@ import { MaterialModule } from './material/material.module';
 import { SideNavComponent } from './app-components/side-nav/side-nav.component';
 import { DayPictureComponent } from './app-components/day-picture/day-picture.component';
 import { BioComponent } from './app-components/bio/bio.component';
+import { AuthService } from './shared/services/auth.service';
+import { UserService } from './shared/services/user.service';
 
 
 @NgModule({
@@ -55,7 +58,9 @@ import { BioComponent } from './app-components/bio/bio.component';
     errorInterceptor,
     //tokenInterceptor,
     HttpClient,
-    NasaService
+    NasaService,
+    UserService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

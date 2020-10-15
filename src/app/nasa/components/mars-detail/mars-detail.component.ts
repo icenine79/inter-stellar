@@ -8,15 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./mars-detail.component.scss']
 })
 export class MarsDetailComponent implements OnInit {
-rover:any
+id:any
   constructor(private nasaService: NasaService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
   this.route.paramMap
   .subscribe(params=>{
-    this.rover=params.get('rover')
-    this.nasaService.getPicByCamera(this.rover)
-    .subscribe(data=>console.log(data))
+    this.id=params.get('id')
+ this.nasaService.getDataImage(this.id)
+ .subscribe(data=>console.log(data))
+
   })
 
 }

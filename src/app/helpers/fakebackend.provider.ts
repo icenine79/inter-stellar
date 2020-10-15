@@ -110,7 +110,7 @@ return ok({
     }
 
     function getUsers() {
-      if (!isLoggedIn()) return unauthorized();
+     // if (!isLoggedIn()) return unauthorized();
       return ok(users);
     }
 

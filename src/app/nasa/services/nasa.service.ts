@@ -29,22 +29,19 @@ export class NasaService {
   }
 //ROVERS
 
-/* getPictureByRover(id:any){
-  return this.http.get(environment.camUrl+id+environment.apiKey)
-  .pipe(map(result=>{
-    let res:any[]=result['photos']
-    let final = res.map(x=>x['img_src'])
-    console.log(final)
-    return final;
-  }))
-} */
+public getDataImage(id: number){
+return this.http.get<any>(environment.baseUrl+environment.apiKey)
+.pipe(map(res=>{
+  let response = Array.of(res)
+  return response.filter(x=>x.id===id)
+}))
+}
 
 
 getPicByCamera(camera: string){
   return this.http.get<any>(environment.camUrl+camera+environment.apiKey)
   .pipe(map(result=>{
     console.log(result)
-    console.log(result['camera'])
     let res: any[]=result['photos']
   return res;
   }))
