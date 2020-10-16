@@ -15,18 +15,23 @@
     <div class="col-md-7">
       <h3>{{p.explanation}}</h3>
     </div>
+
+
   </div>
-  <div class="row">
-    <div class="col-md-6" *ngFor="let p of picsToDisplay">
-      <div class="card" style="width: 18rem;">
-        <img class="card-img-top" src="{{p}}" alt="Card image cap">
+  <div *ngIf="picsToDisplay">
+  <div class="row" style="margin-top: 20px;" *ngFor="let p of picsToDisplay">
+    <div class="col-md-6" >
+      <h1 class="heading">Our user's favourite pictures</h1>
+      <div class="card mat-elevation-z8" style="width: 18rem;">
+        <img class="card-img-top" src="{{p.picture}}" alt="Card image cap">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
+          <h5 class="card-title">By {{p.username}}</h5>
+          <p class="card-text">Likes: {{p.likes}}</p>
+          <button type="button"class="btn btn-primary">Go somewhere</button>
         </div>
       </div>
     </div>
   </div>
+</div>
 </div>
 

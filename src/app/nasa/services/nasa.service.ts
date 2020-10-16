@@ -54,9 +54,9 @@ getUserById(id): Observable<User>{
 
 //FAKEBACKEND
 
-likeDayPic(pic:string){
-  console.log(pic)
-  return this.http.post('/likedaypic',pic)
+likeDayPic(likeObject: Object){
+  console.log(likeObject)
+  return this.http.post('/likedaypic',likeObject)
 }
 getPictures(){
   return this.http.get('/pictures');

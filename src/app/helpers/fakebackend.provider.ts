@@ -5,7 +5,7 @@ import { mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 
 let users = JSON.parse(localStorage.getItem('users')) || [];
-let pictures = JSON.parse(localStorage.getItem('pictures')) || [];
+let likeObject = JSON.parse(localStorage.getItem('likeObject')) || [];
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -62,11 +62,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
 function pictureLike(){
 const picture = body
 
-pictures.push(picture)
-localStorage.setItem('pictures', JSON.stringify(pictures));
+likeObject.push(picture)
+localStorage.setItem('pictures', JSON.stringify(likeObject));
 return ok({
   message: 'like!!',
-  pics: pictures
+  pics: likeObject
 })
 }
     function register() {
@@ -116,7 +116,7 @@ return ok({
       return ok(users);
     }
 function getPictures(){
-  return ok(pictures)
+  return ok(likeObject)
 }
     function getUserById() {
       if (!isLoggedIn()) return unauthorized();

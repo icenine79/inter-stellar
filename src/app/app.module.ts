@@ -26,6 +26,7 @@ import { DayPictureComponent } from './app-components/day-picture/day-picture.co
 import { BioComponent } from './app-components/bio/bio.component';
 import { AuthService } from './shared/services/auth.service';
 import { UserService } from './shared/services/user.service';
+import { CommentsComponent } from './app-components/comments/comments.component';
 
 
 @NgModule({
@@ -39,8 +40,10 @@ import { UserService } from './shared/services/user.service';
     SummaryPipe,
     SideNavComponent,
     DayPictureComponent,
-    BioComponent
+    BioComponent,
+    CommentsComponent
   ],
+
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -53,6 +56,7 @@ import { UserService } from './shared/services/user.service';
     FormsModule
 
   ],
+  entryComponents:[CommentsComponent],
   providers: [
     fakeBackendProvider,
     errorInterceptor,
@@ -62,6 +66,7 @@ import { UserService } from './shared/services/user.service';
     UserService,
     AuthService
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
