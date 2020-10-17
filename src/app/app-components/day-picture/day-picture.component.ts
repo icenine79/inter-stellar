@@ -1,7 +1,7 @@
-import { AuthService } from './../../global-features/services/auth.service';
 import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, OnInit, ViewChild, ViewContainerRef, ɵComponentFactory } from '@angular/core';
 import { DayPicture } from '../../nasa/models/DayPicture';
 import { NasaService } from '../../nasa/services/nasa.service';
+import { AuthService } from '../../shared/services/auth.service';
 import { CommentsComponent } from '../comments/comments.component';
 
 @Component({
@@ -13,10 +13,8 @@ export class DayPictureComponent implements OnInit {
   pictureObject: DayPicture[];
   likes:number=0;
   picsToDisplay:any;
-unique:any;
-username:string;
+
   constructor(private nasaService: NasaService, private auth: AuthService) {
-   this.username = this.auth.currenUserSubjectValue.username
   }
 
   ngOnInit(): void {
@@ -36,14 +34,7 @@ username:string;
 
   like(pic){
 
-    let likeObject={
-      picture:pic,
-      username:this.username,
-      likes: this.likes++
-    }
 
-    this.nasaService.likeDayPic(likeObject)
-    .subscribe(()=>{})
 
   }
 

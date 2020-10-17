@@ -28,7 +28,7 @@ register(credentials:any){
   return this.http.post('/users/register', credentials);
 }
 login(credentials){
-  return this.http.post('users/authenticate', credentials)
+  return this.http.post('/users/authenticate', credentials)
   .pipe(map(user=>{
     if(user)
     localStorage.setItem('currentUser',JSON.stringify(user));
@@ -43,4 +43,17 @@ login(credentials){
      this.currentUserSubject.next(null);
       this.router.navigate(['/login'])
    }
+   editUser(id,params){
+    return this.http.put(`/users/${id}`, params)
+    .pipe(map(x=>{
+      if(id===this.currentUserValue.id){
+        //updateLicalStorage
+        const user = {...this.currentUser, ...params}
+        localStorage.setItem('currentUser', JSON.stringify(user))
+        //publish updated user
+        this.currentUserSubject.next(user)
+      }
+      return x;
+     }))
+  }
 }

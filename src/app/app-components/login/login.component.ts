@@ -1,8 +1,8 @@
-import { AuthService } from './../../global-features/services/auth.service';
 import { Router } from '@angular/router';
 import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Form } from '../../global-features/dynamic-forms/Form';
+import { AuthService } from '../../shared/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +23,7 @@ let credentials={
   username: this.username.value,
   password: this.password.value
 }
-    this.auth.logIn(credentials)
+    this.auth.login(credentials)
     .subscribe(data=>{
       console.log(data);
       this.router.navigate(['/home'])
