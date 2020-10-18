@@ -32,13 +32,13 @@ editMode:boolean;
 
     //Get user params
 
-    /* this.route.paramMap.pipe(switchMap(params=>{
+   /*   this.route.paramMap.pipe(switchMap(params=>{
       this.id= params.get('id')
        return this.nasa.getUserById(this.id)
 
        })).subscribe(user=>{
          this.user=user;
-       }) */
+       })  */
 
 //RegisterForm
 

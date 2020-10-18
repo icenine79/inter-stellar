@@ -1,3 +1,4 @@
+import { SupplierResolverService } from './shared/services/resolvers/supplier-resolver.service';
 import { BioComponent } from './app-components/bio/bio.component';
 import { DayPictureComponent } from './app-components/day-picture/day-picture.component';
 import { LoginComponent } from './app-components/login/login.component';
@@ -25,7 +26,7 @@ const routes: Routes = [
     },
     {path:'login', component: LoginComponent},
     {path:'register', component: RegisterComponent},
-    {path:'edit/:id', component: RegisterComponent}
+    {path:'edit/:id', component: RegisterComponent, resolve:{user: SupplierResolverService}}
 
 ];
 
