@@ -10,6 +10,8 @@ import { AuthGuardService } from './shared/services/guards/auth-guard.service';
 import { UserResolverService } from './shared/services/resolvers/user-resolver.service';
 const admin = ()=> import('./admin/admin.module').then(x=>x.AdminModule)
 const nasa = ()=> import('./nasa/nasa.module').then(x=>x.NasaModule)
+const movies = ()=> import('./movies/movies.module').then(x=>x.MoviesModule)
+
 const routes: Routes = [
   {path: '', component: ShellComponent,
     children:[
@@ -19,6 +21,7 @@ const routes: Routes = [
 
         { path: 'nasa', loadChildren: nasa, canLoad: [AuthGuardService]},
         { path: 'admin', loadChildren: admin, canLoad: [AuthGuardService]},
+        { path: 'movies', loadChildren: movies, canLoad: [AuthGuardService]},
 
         { path: '', redirectTo: 'home', pathMatch: 'full' },
 
