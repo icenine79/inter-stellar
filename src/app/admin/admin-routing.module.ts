@@ -1,3 +1,4 @@
+import { UserResolverService } from './../shared/services/resolvers/user-resolver.service';
 import { AdminDetailComponent } from './components/admin-detail/admin-detail.component';
 
 import { NgModule } from '@angular/core';
@@ -8,7 +9,13 @@ import { AdminComponent } from './components/admin/admin.component';
 const routes: Routes = [
 
   {path:'', component:AdminComponent},
-  {path:'admin-detail/:id', component:AdminDetailComponent}
+  {
+    path:'user/:id',
+    component:AdminDetailComponent,
+    resolve: {
+      adminUser: UserResolverService
+    }
+  }
 ];
 
 @NgModule({

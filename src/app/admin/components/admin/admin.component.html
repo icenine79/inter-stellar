@@ -1,9 +1,22 @@
 <div class="container">
   <div class="row"*ngIf=users>
-    <ul class="list-group">
-      <li class="list-group-item" *ngFor="let u of users">
-          {{u.username}} <span><a [routerLink]="['/admin-detail', u.id]" class="btn btn-primary">See Detail</a></span>
-      </li>
-    </ul>
+    <table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Username</th>
+      <th scope="col">Email</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let u of users">
+    <tr>
+      <th scope="row">{{u.id}}</th>
+      <td>{{u.username}}</td>
+      <td>{{u.email}}</td>
+      <td><a class="btn btn-primary" [routerLink]="['/user', u.id]">See details</a> </td>
+    </tr>
+  </tbody>
+</table>
   </div>
 </div>

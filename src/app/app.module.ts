@@ -1,3 +1,4 @@
+import { AdminModule } from './admin/admin.module';
 
 import { SummaryPipe } from './helpers/pipes/summary-pipe';
 import { HttpClientModule } from '@angular/common/http';
@@ -53,7 +54,8 @@ import { CommentsComponent } from './app-components/comments/comments.component'
     BrowserAnimationsModule,
     NgbModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    AdminModule
 
   ],
   entryComponents:[CommentsComponent],

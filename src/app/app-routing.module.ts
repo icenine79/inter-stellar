@@ -1,4 +1,3 @@
-import { SupplierResolverService } from './shared/services/resolvers/supplier-resolver.service';
 import { BioComponent } from './app-components/bio/bio.component';
 import { DayPictureComponent } from './app-components/day-picture/day-picture.component';
 import { LoginComponent } from './app-components/login/login.component';
@@ -8,6 +7,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule, CanActivateChild } from '@angular/router';
 import { RegisterComponent } from './app-components/register/register.component';
 import { AuthGuardService } from './shared/services/guards/auth-guard.service';
+import { UserResolverService } from './shared/services/resolvers/user-resolver.service';
 const admin = ()=> import('./admin/admin.module').then(x=>x.AdminModule)
 const nasa = ()=> import('./nasa/nasa.module').then(x=>x.NasaModule)
 const routes: Routes = [
@@ -26,7 +26,7 @@ const routes: Routes = [
     },
     {path:'login', component: LoginComponent},
     {path:'register', component: RegisterComponent},
-    {path:'edit/:id', component: RegisterComponent, resolve:{user: SupplierResolverService}}
+    {path:'edit/:id', component: RegisterComponent, resolve:{user: UserResolverService}}
 
 ];
 

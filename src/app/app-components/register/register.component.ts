@@ -10,60 +10,50 @@ import { AuthService } from '../../shared/services/auth.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent extends Form implements OnInit {
-id:any
-user: User;
-editMode:boolean;
+  id: any;
+  user: User;
+  editMode: boolean;
+  currentUser: User;
   constructor(
     private auth: AuthService,
-    private route:ActivatedRoute,
+    private route: ActivatedRoute,
     private fb: FormBuilder,
-     private router: Router,
-     private nasa: NasaService) {super() }
+    private router: Router,
+    private nasa: NasaService
+  ) {
+    super();
+  }
 
   ngOnInit(): void {
-    console.log(localStorage.getItem('currentUser'))
-    this.formBuilder()
+    console.log(localStorage.getItem('currentUser'));
+    this.formBuilder();
     //checkUrl
-    if(this.router.url.match('/edit/'))
-      this.editMode=true;
+    if (this.router.url.match('/edit/')) this.editMode = true;
+    //Get current
+    this.auth.currentUser.subscribe((user) => {
+      this.currentUser = user;
+      this.username.setValue(this.currentUser.username)
+      this.password.setValue(this.currentUser.password)
 
-    //Get user params
-
-   /*   this.route.paramMap.pipe(switchMap(params=>{
-      this.id= params.get('id')
-       return this.nasa.getUserById(this.id)
-
-       })).subscribe(user=>{
-         this.user=user;
-       })  */
-
-//RegisterForm
-
+       });
   }
 
+  onSubmit() {
+    if (this.form.invalid) return;
+    let credentials = {
+      username: this.username.value,
+      password: this.password.value,
+    };
 
-
-onSubmit(){
-
-  if(this.form.invalid)return
-  let credentials={
-    username: this.username.value,
-    password: this.password.value
+    this.auth.register(credentials).subscribe((data: Response) => {
+      console.log(data);
+      this.router.navigate(['/login']);
+    });
   }
-
-  this.auth.register(credentials)
-  .subscribe((data:Response)=>{
-    console.log(data)
-    this.router.navigate(['/login'])
-
-  })
-
-
-}
-/*
+  /*
 editUser() {
   this.auth.editUser(this.id, this.form.value)
     .pipe(first())

@@ -119,7 +119,7 @@ function getPictures(){
   return ok(likeObject)
 }
     function getUserById() {
-      if (!isLoggedIn()) return unauthorized();
+     // if (!isLoggedIn()) return unauthorized();
 
       const user = users.find(x => x.id == idFromUrl());
       return ok(user);

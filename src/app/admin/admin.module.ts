@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material/material.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AdminComponent } from './components/admin/admin.component';
@@ -10,7 +11,8 @@ import { AdminDetailComponent } from './components/admin-detail/admin-detail.com
   declarations: [AdminComponent, AdminDetailComponent],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    MaterialModule
   ]
 })
 export class AdminModule { }
