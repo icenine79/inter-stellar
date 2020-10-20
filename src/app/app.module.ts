@@ -1,3 +1,4 @@
+import { MovieService } from './movies/services/movie.service';
 import { AdminModule } from './admin/admin.module';
 
 import { SummaryPipe } from './helpers/pipes/summary-pipe';
@@ -28,6 +29,7 @@ import { BioComponent } from './app-components/bio/bio.component';
 import { AuthService } from './shared/services/auth.service';
 import { UserService } from './shared/services/user.service';
 import { CommentsComponent } from './app-components/comments/comments.component';
+import { MoviesModule } from './movies/movies.module';
 
 
 @NgModule({
@@ -55,7 +57,8 @@ import { CommentsComponent } from './app-components/comments/comments.component'
     NgbModule,
     ReactiveFormsModule,
     FormsModule,
-    AdminModule
+    AdminModule,
+    MoviesModule
 
   ],
   entryComponents:[CommentsComponent],
@@ -66,7 +69,8 @@ import { CommentsComponent } from './app-components/comments/comments.component'
     HttpClient,
     NasaService,
     UserService,
-    AuthService
+    AuthService,
+    MovieService
   ],
 
   bootstrap: [AppComponent]
