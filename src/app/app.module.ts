@@ -1,3 +1,4 @@
+import { CalculatorModule } from './calculator/calculator.module';
 import { MovieService } from './movies/services/movie.service';
 import { AdminModule } from './admin/admin.module';
 
@@ -58,7 +59,8 @@ import { MoviesModule } from './movies/movies.module';
     ReactiveFormsModule,
     FormsModule,
     AdminModule,
-    MoviesModule
+    MoviesModule,
+    CalculatorModule
 
   ],
   entryComponents:[CommentsComponent],
