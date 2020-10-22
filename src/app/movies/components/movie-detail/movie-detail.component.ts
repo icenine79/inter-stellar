@@ -1,3 +1,4 @@
+import { Movie } from './../../models/Movie';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
@@ -7,9 +8,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./movie-detail.component.scss']
 })
 export class MovieDetailComponent implements OnInit {
-
+movie:Movie[]
   constructor (private route: ActivatedRoute) {}
   ngOnInit() {
-     this.route.data.subscribe(data => console.log('Data :', data));
+     this.route.data.subscribe((data:Movie[]) =>{
+        this.movie=data
+       console.log(this.movie)
+      })
   }
 }
