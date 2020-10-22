@@ -8,6 +8,8 @@ import { Routes, RouterModule, CanActivateChild } from '@angular/router';
 import { RegisterComponent } from './app-components/register/register.component';
 import { AuthGuardService } from './shared/services/guards/auth-guard.service';
 import { UserResolverService } from './shared/services/resolvers/user-resolver.service';
+import { DayResolverService } from './app-components/day-resolver/day-resolver.service';
+import { DayDetailComponent } from './app-components/day-detail/day-detail.component';
 const admin = ()=> import('./admin/admin.module').then(x=>x.AdminModule)
 const nasa = ()=> import('./nasa/nasa.module').then(x=>x.NasaModule)
 const movies = ()=> import('./movies/movies.module').then(x=>x.MoviesModule)
@@ -20,6 +22,7 @@ const routes: Routes = [
         {path:'home', component: HomeComponent},
         {path:'day', component: DayPictureComponent, canActivate:[AuthGuardService]},
         {path:'bio', component: BioComponent , canActivate:[AuthGuardService]},
+        {path:'day-detail/:id', component: DayDetailComponent, resolve:{day:DayResolverService}},
 
         { path: 'nasa', loadChildren: nasa, canLoad: [AuthGuardService]},
         { path: 'admin', loadChildren: admin, canLoad: [AuthGuardService]},

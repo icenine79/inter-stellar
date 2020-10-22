@@ -1,5 +1,9 @@
 <div class="container">
+  <div *ngIf="error" class="alert alert-danger text-center" role="alert">
+    Sorry, image not available yet. Come back soon!
+  </div>
   <div class="row" *ngFor="let p of pictureObject">
+
     <div class="col-md-5" >
       <mat-card class="mat-elevation-z8" >
         <mat-card-title>{{ p.title }}</mat-card-title>
@@ -27,7 +31,7 @@
         <div class="card-body">
           <h5 class="card-title">By {{p.username}}</h5>
           <p class="card-text">Likes: {{p.likes}}</p>
-          <button type="button"class="btn btn-primary">Go somewhere</button>
+          <a type="button"class="btn btn-primary" [routerLink]="">See in Detail</a>
         </div>
       </div>
     </div>

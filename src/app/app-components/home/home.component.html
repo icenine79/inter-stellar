@@ -17,96 +17,107 @@
 
       <div class="row">
         <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 225px; width: 100%; display: block;" src="assets/dayImage.jpeg" data-holder-rendered="true">
-            <div class="card-body">
-              <p class="card-text">Visit NASA'S daily picture, get into they're interesting explanation and leave a comment!</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/day" >View</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
+          <mat-card class="mat-elevation-z8">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Nasa's image of the day</mat-card-title>
+            </mat-card-header>
+            <img class="img-wrapper" mat-card-image src="assets/space.jpg" alt="day image">
+            <mat-card-content>
+              <p>
+               Mars and and Jupiter bla bla
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" routerLink="/day">View</button>
+            </mat-card-actions>
+          </mat-card>
         </div>
         <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top"
-            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-            alt="Thumbnail [100%x225]"
-            src="assets/rover.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-            <div class="card-body">
-              <p class="card-text">In this section you can take a peak of Nasa's Robots currently on Mars surface</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a type="button" class="btn btn-sm btn-outline-secondary" routerLink="/nasa">View</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <mat-card class="mat-elevation-z8">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Rovers</mat-card-title>
+            </mat-card-header>
+            <img class="img-wrapper" mat-card-image src="assets/rover.jpg" alt="rover image">
+            <mat-card-content>
+              <p>
+               Rovers Mars bla bla
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" routerLink="/nasa">View</button>
+            </mat-card-actions>
+          </mat-card>
         </div>
         <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top"
-            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
-            alt="Thumbnail [100%x225]"
-            src="assets/guardian.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
-            <div class="card-body">
-              <p class="card-text">For readers interested in the latest news. The Guardian API provide current and old news</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                </div>
-                <small class="text-muted">9 mins</small>
-              </div>
-            </div>
-          </div>
+          <mat-card class="mat-elevation-z8">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>News</mat-card-title>
+            </mat-card-header>
+            <img class="img-wrapper" mat-card-image src="assets/guardian.jpg" alt="rover image">
+            <mat-card-content>
+              <p>
+               Latest news
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" routerLink="/nasa">View</button>
+            </mat-card-actions>
+          </mat-card>
         </div>
         <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top"
-            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
-            src="assets/code.jpg" data-holder-rendered="true" class="img-fluid" style="height: 225px; width: 100%; display: block;">
-            <div class="card-body">
-              <p class="card-text">This section is about how a book publisher ends up in Angular development!</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <a type="button" class="btn btn-sm btn-outline-secondary" routerLink="/bio" >View</a>
-                </div>
-              </div>
-            </div>
-          </div>
+          <mat-card class="mat-elevation-z8">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Author's Biography</mat-card-title>
+            </mat-card-header>
+            <img class="img-wrapper" mat-card-image src="assets/code.jpg" alt="code image">
+            <mat-card-content>
+              <p>
+               Bio bla bla bla
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" routerLink="/bio">View</button>
+            </mat-card-actions>
+          </mat-card>
         </div>
         <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top"
-            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
-            src="assets/movies.jpg" data-holder-rendered="true" class="img-fluid" style="height: 225px; width: 100%; display: block;">
-            <div class="card-body">
-              <p class="card-text">Browse your favourite movies and series!</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/movies">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <mat-card class="mat-elevation-z8">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Movies</mat-card-title>
+            </mat-card-header>
+            <img class="img-wrapper" mat-card-image src="assets/movies.png" alt="Movies">
+            <mat-card-content>
+              <p>
+               Movies and Series bla bla
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" routerLink="/movies">View</button>
+            </mat-card-actions>
+          </mat-card>
         </div>
+
         <div class="col-md-4">
-          <div class="card mb-4 box-shadow">
-            <img class="card-img-top"
-            data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]"
-            src="assets/movies.jpg" data-holder-rendered="true" class="img-fluid" style="height: 225px; width: 100%; display: block;">
-            <div class="card-body">
-              <p class="card-text">Calculator</p>
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" routerLink="/movies">View</button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <mat-card class="mat-elevation-z8">
+            <mat-card-header>
+              <div mat-card-avatar class="example-header-image"></div>
+              <mat-card-title>Calculator</mat-card-title>
+            </mat-card-header>
+            <img class="img-wrapper" mat-card-image src="assets/calculator.jpg" alt="Calculator">
+            <mat-card-content>
+              <p>
+               Calculate bla bla
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button mat-raised-button color="primary" routerLink="/calculator">View</button>
+            </mat-card-actions>
+          </mat-card>
         </div>
       </div>
     </div>

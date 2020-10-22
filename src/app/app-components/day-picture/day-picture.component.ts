@@ -13,7 +13,7 @@ export class DayPictureComponent implements OnInit {
   pictureObject: DayPicture[];
   likes:number=0;
   picsToDisplay:any;
-
+  error:boolean=false;
   constructor(private nasaService: NasaService, private auth: AuthService) {
   }
 
@@ -22,6 +22,8 @@ export class DayPictureComponent implements OnInit {
     .subscribe((data:DayPicture)=>{
       this.pictureObject=Array.of(data)
 
+    },error=>{
+      this.error=true;
     })
     this.nasaService.getPictures()
     .subscribe(pics=>{

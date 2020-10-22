@@ -31,6 +31,7 @@ import { AuthService } from './shared/services/auth.service';
 import { UserService } from './shared/services/user.service';
 import { CommentsComponent } from './app-components/comments/comments.component';
 import { MoviesModule } from './movies/movies.module';
+import { DayDetailComponent } from './app-components/day-detail/day-detail.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { MoviesModule } from './movies/movies.module';
     SideNavComponent,
     DayPictureComponent,
     BioComponent,
-    CommentsComponent
+    CommentsComponent,
+    DayDetailComponent
   ],
 
   imports: [
