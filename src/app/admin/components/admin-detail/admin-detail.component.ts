@@ -12,7 +12,7 @@ export class AdminDetailComponent implements OnInit {
   user: any;
   constructor(private route: ActivatedRoute) {}
   ngOnInit() {
-    this.route.data.subscribe((data:any) => {
+    this.route.data.subscribe((data:User) => {
       this.user=Array.of(data);
       console.log(this.user)
     });

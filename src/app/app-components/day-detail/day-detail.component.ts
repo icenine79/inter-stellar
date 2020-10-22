@@ -7,10 +7,12 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./day-detail.component.scss']
 })
 export class DayDetailComponent implements OnInit {
-
+dayPicture: any;
   constructor (private route: ActivatedRoute) {}
   ngOnInit() {
-     this.route.data.subscribe(data => console.log('Data :', data));
+     this.route.data.subscribe(data =>{
+      this.dayPicture= data
+     });
   }
 
 }

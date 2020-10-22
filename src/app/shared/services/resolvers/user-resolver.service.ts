@@ -14,7 +14,7 @@ export class UserResolverService implements Resolve<User>{
   resolve(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
-  ): Observable<User> {
+  ): Observable<any> {
     return this.nasaService.getUserById(route.paramMap.get('id'));
   }
 }

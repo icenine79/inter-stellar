@@ -22,7 +22,7 @@ const routes: Routes = [
         {path:'home', component: HomeComponent},
         {path:'day', component: DayPictureComponent, canActivate:[AuthGuardService]},
         {path:'bio', component: BioComponent , canActivate:[AuthGuardService]},
-        {path:'day-detail/:id', component: DayDetailComponent , resolve:{day:DayResolverService}},
+        {path:'day-detail/:title', component: DayDetailComponent , resolve:{day:DayResolverService}},
 
         { path: 'nasa', loadChildren: nasa, canLoad: [AuthGuardService]},
         { path: 'admin', loadChildren: admin, canLoad: [AuthGuardService]},
