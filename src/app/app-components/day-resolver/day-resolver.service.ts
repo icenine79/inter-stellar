@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class DayResolverService implements Resolve {
+export class DayResolverService implements Resolve<any> {
 
   constructor(private nasaService: NasaService) { }
 
@@ -14,6 +14,6 @@ export class DayResolverService implements Resolve {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
   ): Observable<any> {
-    return this.nasaService.getDetailPicture(route.paramMap.get('id'));
+    return this.nasaService.getDetailPicture(route.paramMap.get('title'));
   }
 }

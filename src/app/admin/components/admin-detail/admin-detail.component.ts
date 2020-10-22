@@ -8,10 +8,8 @@ import { UserService } from '../../../shared/services/user.service';
   styleUrls: ['./admin-detail.component.scss']
 })
 export class AdminDetailComponent implements OnInit {
-  constructor() { }
-
-  ngOnInit(): void {
-
+  constructor (private route: ActivatedRoute) {}
+  ngOnInit() {
+     this.route.data.subscribe(data => console.log('Data :', data));
   }
-
 }

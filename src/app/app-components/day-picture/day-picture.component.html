@@ -10,7 +10,7 @@
         <mat-card-subtitle>Date: {{ p.date }}</mat-card-subtitle>
         <img mat-card-image src="{{ p.url }}" alt="{{p.title}}" />
         <mat-card-content>
-          <button type="button" (click)="like(p.url)" class="btn btn-danger">Like</button>
+          <a type="button" [routerLink]="['/day-detail', p.title]" class="btn btn-danger">Detail</a>
 
         </mat-card-content>
 
