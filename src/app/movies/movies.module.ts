@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material/material.module';
 import { BaseMovieComponent } from './components/base-movie/base-movie.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -10,7 +11,8 @@ import { MovieDetailComponent } from './components/movie-detail/movie-detail.com
   declarations: [BaseMovieComponent, MovieDetailComponent],
   imports: [
     CommonModule,
-    MoviesRoutingModule
+    MoviesRoutingModule,
+    MaterialModule
   ]
 })
 export class MoviesModule { }

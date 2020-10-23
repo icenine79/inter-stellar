@@ -26,6 +26,7 @@ export class MovieService {
 }
 
   getEpisode(name: string, episode: string):Observable<Movie> {
+    console.log(name,episode)
     this.name = name;
     return this.http.get<Movie>(
       "https://www.omdbapi.com/?t=" +

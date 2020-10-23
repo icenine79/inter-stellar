@@ -1,3 +1,4 @@
+import { MovieService } from './../../services/movie.service';
 import { Movie } from './../../models/Movie';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -14,19 +15,33 @@ series:any;
 seasons:any
 dropdown:boolean=false;
 episodes:any[]=[]
-  constructor (private route: ActivatedRoute) {}
+episode:string=''
+title:string;
+  constructor (private route: ActivatedRoute, private movieService: MovieService) {}
   ngOnInit() {
      this.route.data.subscribe((data:any) =>{
         this.movie=Array.of(data)
         this.series=this.movie[0]['movie'];
+        this.title=this.series['Title']
         this.seasons=+this.series['totalSeasons']
-        console.log(this.seasons)
       })
       this.populateDropDown();
+
     }
+    searchByEpisode(){
+      this.movieService.getEpisode(this.title, this.episode)
+      .subscribe(data=>{
+        console.log(data)
+      })
+    }
+
+
+
 populateDropDown(){
-  this.seasons!==true? this.dropdown=false:this.dropdown=true
-  for (let i = 1; i < this.seasons + 1; i++) {
+  !this.seasons?
+  this.dropdown = false:
+  this.dropdown = true;
+   for (let i = 1; i < this.seasons + 1; i++) {
     this.episodes.push(i);
     console.log(this.episodes)
   }
