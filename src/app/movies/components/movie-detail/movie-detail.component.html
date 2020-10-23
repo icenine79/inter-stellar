@@ -2,6 +2,14 @@
   <div class="row" *ngIf="movie">
     <div class="col-md-12" *ngFor="let m of movie">
      <img class="img-fluid" src="{{m.movie.Poster}}">
+   <!--   <mat-form-field style="width:100%;">
+      <mat-label>Choose an Episode</mat-label>
+      <mat-select [(value)]="camera" (selectionChange)="searchByCamera() ">
+        <mat-option *ngFor="let c of cameras" [value]="c">
+          {{c}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field> -->
     </div>
   </div>
 </div>
