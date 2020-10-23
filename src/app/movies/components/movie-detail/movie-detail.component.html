@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row" *ngIf="movie">
     <div class="col-md-12" *ngFor="let m of movie">
-      {{m.Title}}
+     <img class="img-fluid" src="{{m.movie.Poster}}">
     </div>
   </div>
 </div>

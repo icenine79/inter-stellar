@@ -12,6 +12,7 @@ dayPicture: any;
   ngOnInit() {
      this.route.data.subscribe(data =>{
       this.dayPicture= data
+      console.log(this.dayPicture)
      });
   }
 
