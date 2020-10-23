@@ -38,9 +38,8 @@ title:string;
 
 
 populateDropDown(){
-  !this.seasons?
-  this.dropdown = false:
-  this.dropdown = true;
+  !this.seasons? this.dropdown = false:
+                 this.dropdown = true;
    for (let i = 1; i < this.seasons + 1; i++) {
     this.episodes.push(i);
     console.log(this.episodes)

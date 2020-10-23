@@ -1,7 +1,9 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
-      <input class="form-control" #search (keyup.enter)="getMovie(search.value)">
+      <input placeholder="search form movies or series" class="form-control" #search (keyup.enter)="getMovie(search.value)">
+      <button style="margin-top:10px;" class="btn btn-danger" (click)="getMovie(search.value)">Get some reels!</button>
+
       <div style="margin-top:40%;" *ngIf="error" class="alert alert-danger col-md-6 offset-md-3" role="alert">
         Movie not found. Check your spelling and try again
       </div>
@@ -24,14 +26,13 @@
     </div>
 
 
-        <div class="col-md-6" >
-          <h5 class="mt-0">{{m.Title}}, {{m.Year}}</h5>
-          <h5 class="mt-0">{{m.Genre}}</h5>
+        <div class="col-md-6" style="color:white;">
+          <h3>{{m.Title}}, {{m.Year}}</h3>
+          <h3 >{{m.Genre}}</h3>
           <br>
-          <h5 class="mt-0">Sinopsis</h5>
-          <br>
+          <h3 >Sinopsis</h3>
           <p>{{m.Plot}}</p>
-          <p> <a [routerLink]="['/movie-detail', m.Title]">See details</a></p>
+          <p> <a class="btn btn-primary" [routerLink]="['/movie-detail', m.Title]">See details</a></p>
 
 
         </div>

@@ -1,10 +1,12 @@
-<div class="container">
+<div class="container-fluid ">
+
+
   <div class="row" *ngIf="movie">
     <div class="col-md-6" *ngFor="let m of movie">
      <img class="img-fluid" src="{{m.movie.Poster}}">
      <div class="row">
-      <mat-form-field *ngIf="dropdown"  style="width:100%;">
-        <mat-label>Choose an Episode</mat-label>
+      <mat-form-field *ngIf="dropdown"  style="width:50%;">
+        <mat-label>Choose a Season</mat-label>
         <mat-select [(value)]="episode" (selectionChange)="searchByEpisode() ">
           <mat-option *ngFor="let e of episodes" [value]="e">
             {{e}}
@@ -16,4 +18,5 @@
 
     </div>
   </div>
+
 </div>
