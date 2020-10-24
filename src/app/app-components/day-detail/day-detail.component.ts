@@ -13,6 +13,7 @@ export class DayDetailComponent implements OnInit {
 dayPicture: any;
 user:User;
 picObj:any;
+uniquePicture:any[]=[];
   constructor (
     private route: ActivatedRoute,
     private location: Location,
@@ -32,9 +33,12 @@ picObj:any;
      this.nasaService.getPictures()
      .subscribe(data=>{
       this.picObj =data
-      console.log(this.picObj)
+      this.uniquePicture.push(this.picObj[0]['picture'])
+      console.log(this.uniquePicture)
      })
 
+    // this.uniquePicture =[...new Set(this.picObj)]
+    // console.log(this.uniquePicture)
   }
 goBack(){
   this.location.back();
