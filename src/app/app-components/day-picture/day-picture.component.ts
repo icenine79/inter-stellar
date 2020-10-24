@@ -11,8 +11,6 @@ import { CommentsComponent } from '../comments/comments.component';
 })
 export class DayPictureComponent implements OnInit {
   pictureObject: DayPicture[];
-  likes:number=0;
-  picsToDisplay:any;
   error:boolean=false;
   constructor(private nasaService: NasaService, private auth: AuthService) {
   }
@@ -25,19 +23,6 @@ export class DayPictureComponent implements OnInit {
     },error=>{
       this.error=true;
     })
-    this.nasaService.getPictures()
-    .subscribe(pics=>{
-      this.picsToDisplay=pics;
-      //this.unique = this.picsToDisplay.filter((v, i, a) => a.indexOf(v) === i);
-      console.log(this.picsToDisplay)
-    })
-  }
-
-
-  like(pic){
-
-
-
   }
 
 }

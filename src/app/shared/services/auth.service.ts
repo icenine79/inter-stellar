@@ -20,6 +20,12 @@ currentUser: Observable<User>
    get currentUserValue():User{
      return this.currentUserSubject.value;
    }
+isAdmin(): boolean{
+  const user = localStorage.getItem('currentUser')
+  const token = this.helper.decodeToken(user)
+ return token['isAdmin']!==true? false : true;
+}
+
 
    isLoggedIn(): boolean{
     const user = localStorage.getItem('currentUser')

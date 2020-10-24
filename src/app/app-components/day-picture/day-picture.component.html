@@ -22,20 +22,6 @@
 
 
   </div>
-  <div *ngIf="picsToDisplay">
-  <div class="row" style="margin-top: 20px;" *ngFor="let p of picsToDisplay">
-    <div class="col-md-6" >
-      <h1 class="heading">Our user's favourite pictures</h1>
-      <div class="card mat-elevation-z8" style="width: 18rem;">
-        <img class="card-img-top" src="{{p.picture}}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">By {{p.username}}</h5>
-          <p class="card-text">Likes: {{p.likes}}</p>
-          <a type="button"class="btn btn-primary" [routerLink]="">See in Detail</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+
 </div>
 

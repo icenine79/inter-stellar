@@ -24,6 +24,7 @@ uniquePicture:any[]=[];
       this.user=user;
       console.log(user)
     })
+
   }
   ngOnInit() {
      this.route.data.subscribe(data =>{
@@ -40,6 +41,11 @@ uniquePicture:any[]=[];
     // this.uniquePicture =[...new Set(this.picObj)]
     // console.log(this.uniquePicture)
   }
+
+  isAdmin():boolean{
+    return this.auth.isAdmin();
+  }
+
 goBack(){
   this.location.back();
 }
