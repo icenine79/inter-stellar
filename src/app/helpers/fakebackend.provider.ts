@@ -63,7 +63,7 @@ function pictureLike(){
 const picture = body
 
 likeObject.push(picture)
-localStorage.setItem('pictures', JSON.stringify(likeObject));
+localStorage.setItem('likeObject', JSON.stringify(likeObject));
 return ok({
   message: 'like!!',
   pics: likeObject

@@ -1,6 +1,9 @@
+import { NasaService } from './../../nasa/services/nasa.service';
+import { AuthService } from './../../shared/services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import {Location} from '@angular/common';
+import { User } from '../../global-features/models/User';
 @Component({
   selector: 'app-day-detail',
   templateUrl: './day-detail.component.html',
@@ -8,14 +11,42 @@ import {Location} from '@angular/common';
 })
 export class DayDetailComponent implements OnInit {
 dayPicture: any;
-  constructor (private route: ActivatedRoute, private location: Location) {}
+user:User;
+picObj:any;
+  constructor (
+    private route: ActivatedRoute,
+    private location: Location,
+    private auth: AuthService,
+    private nasaService: NasaService) {
+    this.auth.currentUser
+    .subscribe(user=>{
+      this.user=user;
+      console.log(user)
+    })
+  }
   ngOnInit() {
      this.route.data.subscribe(data =>{
       this.dayPicture= data
       console.log(this.dayPicture)
      });
+     this.nasaService.getPictures()
+     .subscribe(data=>{
+      this.picObj =data
+      console.log(this.picObj)
+     })
+
   }
 goBack(){
   this.location.back();
+}
+save(image){
+  let likeObj={
+    user:this.user.username,
+    picture: image
+  }
+
+  this.nasaService.likeDayPic(likeObj)
+  .subscribe(data=>console.log(data))
+
 }
 }
