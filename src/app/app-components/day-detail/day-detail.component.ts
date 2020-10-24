@@ -31,15 +31,9 @@ uniquePicture:any[]=[];
       this.dayPicture= data
       console.log(this.dayPicture)
      });
-     this.nasaService.getPictures()
-     .subscribe(data=>{
-      this.picObj =data
-      this.uniquePicture.push(this.picObj[0]['picture'])
-      console.log(this.uniquePicture)
-     })
 
-    // this.uniquePicture =[...new Set(this.picObj)]
-    // console.log(this.uniquePicture)
+
+
   }
 
   isAdmin():boolean{
