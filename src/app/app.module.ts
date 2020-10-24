@@ -28,6 +28,7 @@ import { UserService } from './shared/services/user.service';
 import { CommentsComponent } from './app-components/comments/comments.component';
 import { MoviesModule } from './movies/movies.module';
 import { DayDetailComponent } from './app-components/day-detail/day-detail.component';
+import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
 
 
 @NgModule({
@@ -65,7 +66,9 @@ SharedModule,
     NasaService,
     UserService,
     AuthService,
-    MovieService
+    MovieService,
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    JwtHelperService
   ],
 
   bootstrap: [AppComponent]
