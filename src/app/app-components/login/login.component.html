@@ -1,34 +1,71 @@
-<div class="container">
-  <div class="row">
-      <div class="col-md-6 offset md-3">
-´
-                <form [formGroup]="form" (ngSubmit)="onSubmit()">
-                  <div *ngFor="let input of formTemplate; let i=index">
-                      <div [ngSwitch]="input.label">
-                          <div *ngSwitchCase="'username'">
-                              <input type="text" class="{{input.class}}" placeholder={{input.name}}
-                                  formControlName="{{input.name}}" required={{input.required}} />
-                              <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
-                                  <div *ngIf="username.errors.required">username is required</div>
-                              </div>
 
-                          </div>
-
-                          <div *ngSwitchCase="'password'">
-                              <input type="password" class="{{input.class}}" placeholder={{input.name}}
-                                  formControlName="{{input.name}}" required={{input.required}} />
-                              <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
-                                  <div *ngIf="password.errors.required">Passowrd is required</div>
-                              </div>
-
-                          </div>
-
-                      </div>
-                  </div>
-                  <button type="submit" class="btn btn-primary">Login</button>
-              </form>
-
+<div class="container main">
+  <div class="wrapper">
+    <div class="col-md-8 offset-md-2">
+      <div @fade class=" col-12 login-image ">
+        <img class="img-fluid " src="assets/code.jpg" alt="image not loaded">
       </div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div *ngFor="let input of formTemplate; let i=index">
+            <div [ngSwitch]="input.label">
+                <div *ngSwitchCase="'username'">
+                    <input type="text" class="{{input.class}}" placeholder={{input.name}}
+                        formControlName="{{input.name}}" required={{input.required}} />
+                    <div *ngIf="username.touched && username.invalid" class="alert alert-danger">
+                        <div *ngIf="username.errors.required">username is required</div>
+                    </div>
+
+                </div>
+
+                <div *ngSwitchCase="'password'">
+                    <input type="password" class="{{input.class}}" placeholder={{input.name}}
+                        formControlName="{{input.name}}" required={{input.required}} />
+                    <div *ngIf="password.touched && password.invalid" class="alert alert-danger">
+                        <div *ngIf="password.errors.required">Passowrd is required</div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+       <button class="btn btn-primary btn-block text-center" type="submit" style="font-weight:bold">Login</button>
+    </form>
+    </div>
+    <div class="col-md-12 text-center" style="margin-top:15px">
+      <span>not a member yet? <a routerLink="/signup">sign up</a> </span>
+    </div>
   </div>
 
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
