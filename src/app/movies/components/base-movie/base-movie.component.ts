@@ -18,13 +18,11 @@ export class BaseMovieComponent implements OnInit {
   movieRate: any;
 
   constructor(
-    private movieService: MovieService,
-    private fb: FormBuilder,
-    private http:HttpClient) {}
+    private movieService: MovieService) {}
 
   ngOnInit() {
 
-
+this.getMovie('Superman');//Default Movie
 
    }
 
