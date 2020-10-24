@@ -1,5 +1,8 @@
 <div class="container">
   <div class="row"*ngIf=users>
+    <div class="col-md-4">
+    <input style="margin-bottom:20px;" #query type="text" class="form-control" (keyup)="searchUser(query.value)" placeholder="search for users">
+  </div>
     <table class="table">
   <thead class="thead-dark">
     <tr>
@@ -9,7 +12,8 @@
       <th scope="col">Actions</th>
     </tr>
   </thead>
-  <tbody *ngFor="let u of users">
+  <tbody *ngFor="let u of filteredUsers">
+
     <tr>
       <th scope="row">{{u.id}}</th>
       <td>{{u.username}}</td>

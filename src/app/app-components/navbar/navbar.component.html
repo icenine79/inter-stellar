@@ -7,10 +7,10 @@
 
    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
      <ul class="navbar-nav">
-       <li class="nav-item active">
+       <li class="nav-item ">
          <a class="nav-link" routerLink="/home"  (click)="isMenuCollapsed = true">Home</a>
        </li>
-      <li class="nav-item active">
+      <li class="nav-item ">
          <a class="nav-link edit" (click)="editCredentials(user.id)">Edit
            Credentials</a>
 
@@ -30,10 +30,6 @@
       <li class="nav-item">
         <a class="nav-link"   routerLink="/nasa"  (click)="isMenuCollapsed = true">Nasa</a>
       </li>
-
-
-
-
      </ul>
    </div>
  </nav>

@@ -1,3 +1,4 @@
+import { AdminGuardService } from './services/guards/admin-guard.service';
 import { UserResolverService } from './../shared/services/resolvers/user-resolver.service';
 import { AdminDetailComponent } from './components/admin-detail/admin-detail.component';
 
@@ -8,7 +9,7 @@ import { AdminComponent } from './components/admin/admin.component';
 
 const routes: Routes = [
 
-  {path:'', component:AdminComponent},
+  {path:'', component:AdminComponent, canActivate:[AdminGuardService]},
   {
     path:'user/:id',
     component:AdminDetailComponent,

@@ -10,6 +10,7 @@ import { UserService } from '../../../shared/services/user.service';
 })
 export class AdminComponent implements OnInit {
 users:User[]=[]
+filteredUsers:User[]=[]
 picObj: any;
 uniquePicture:any[]=[]
   constructor(private userService: UserService, private nasaService: NasaService) { }
@@ -17,7 +18,7 @@ uniquePicture:any[]=[]
   ngOnInit(): void {
     this.userService.getAllUsers()
     .subscribe((users:User[])=>{
-      this.users=users;
+      this.users= this.filteredUsers = users;
     })
     this.nasaService.getPictures()
     .subscribe(data=>{
@@ -29,4 +30,11 @@ uniquePicture:any[]=[]
   // this.uniquePicture =[...new Set(this.picObj)]
   // console.log(this.uniquePicture)
   }
+
+  searchUser(query: string){
+    this.filteredUsers = (query)?
+    this.users.filter(user=>user.username.toLowerCase().includes(query.toLowerCase())):
+    this.users;
+  }
+
 }
