@@ -1,7 +1,16 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12" *ngFor="let d of dayPicture.day">
-      <img class="img-fluid" src="{{d.hdurl}}">
+      <mat-card class="mat-elevation-z20" >
+        <mat-card-header>
+
+          <mat-card-title >{{d.title}}</mat-card-title>
+        </mat-card-header>
+        <img mat-card-image src="{{d.hdurl}}" alt="Picture of the day">
+        <mat-card-actions>
+          <button mat-raised-button color="warn" style="width:100%" (click)="goBack()">Go Back</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
   </div>
 </div>
