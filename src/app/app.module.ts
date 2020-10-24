@@ -21,11 +21,6 @@ import { AppComponent } from './app.component';
 
 import { HomeComponent } from './app-components/home/home.component';
 import { HttpClient } from '@angular/common/http';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { MaterialModule } from './material/material.module';
-import { SideNavComponent } from './app-components/side-nav/side-nav.component';
 import { DayPictureComponent } from './app-components/day-picture/day-picture.component';
 import { BioComponent } from './app-components/bio/bio.component';
 import { AuthService } from './shared/services/auth.service';
@@ -44,7 +39,6 @@ import { DayDetailComponent } from './app-components/day-detail/day-detail.compo
     NavbarComponent,
     RegisterComponent,
     SummaryPipe,
-    SideNavComponent,
     DayPictureComponent,
     BioComponent,
     CommentsComponent,
