@@ -1,3 +1,4 @@
+import { MaterialModule } from './../material/material.module';
 import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -11,7 +12,8 @@ import { CalculatorRoutingModule } from './calculator-routing.module';
   imports: [
     CommonModule,
     CalculatorRoutingModule,
-    FormsModule
+    FormsModule,
+    MaterialModule
   ]
 })
 export class CalculatorModule { }
