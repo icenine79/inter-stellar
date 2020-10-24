@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-6">
       <input placeholder="search form movies or series" class="form-control" #search (keyup.enter)="getMovie(search.value)">
-      <button style="margin-top:10px;" class="btn btn-danger" (click)="getMovie(search.value)">Get some reels!</button>
+      <button style="margin-top:10px; margin-bottom:10px;" class="btn btn-danger" (click)="getMovie(search.value)">Get some reels!</button>
 
       <div style="margin-top:40%;" *ngIf="error" class="alert alert-danger col-md-6 offset-md-3" role="alert">
         Movie not found. Check your spelling and try again

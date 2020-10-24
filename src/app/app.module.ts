@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { CalculatorModule } from './calculator/calculator.module';
 import { MovieService } from './movies/services/movie.service';
 import { AdminModule } from './admin/admin.module';
@@ -55,11 +56,7 @@ import { DayDetailComponent } from './app-components/day-detail/day-detail.compo
     HttpClientModule,
     AppRoutingModule,
     NasaModule,
-    MaterialModule,
-    BrowserAnimationsModule,
-    NgbModule,
-    ReactiveFormsModule,
-    FormsModule,
+SharedModule,
     AdminModule,
     MoviesModule,
     CalculatorModule
