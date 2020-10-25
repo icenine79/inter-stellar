@@ -2,7 +2,6 @@ import { Component, ComponentFactory, ComponentFactoryResolver, ComponentRef, On
 import { DayPicture } from '../../nasa/models/DayPicture';
 import { NasaService } from '../../nasa/services/nasa.service';
 import { AuthService } from '../../shared/services/auth.service';
-import { CommentsComponent } from '../comments/comments.component';
 
 @Component({
   selector: 'app-day-picture',
