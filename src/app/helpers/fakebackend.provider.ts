@@ -6,7 +6,7 @@ import { mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
 let users = JSON.parse(localStorage.getItem('users')) || [];
 let likeObject = JSON.parse(localStorage.getItem('likeObject')) || [];
-
+let comments = JSON.parse(localStorage.getItem('comments')) || [];
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
@@ -24,6 +24,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
           return register();
         case url.endsWith('/users/authenticate') && method === 'POST':
           return authenticate();
+          case url.endsWith('/comment') && method === 'POST':
+            return addComment();
+            case url.endsWith('/comments') && method === 'GET':
+              return fetchComments();
           case url.endsWith('/likedaypic') && method === 'POST':
           return pictureLike();
           case url.endsWith('/pictures') && method === 'GET':
@@ -58,6 +62,16 @@ export class FakeBackendInterceptor implements HttpInterceptor {
       localStorage.setItem('users', JSON.stringify(users));
 
       return ok();
+  }
+
+  function addComment(){
+    const comment = body
+    comments.push(comment)
+    localStorage.setItem('comments', JSON.stringify(comments))
+    return ok({
+      message: 'comment added',
+      comment:comment
+    })
   }
 function pictureLike(){
 const picture = body
@@ -118,6 +132,12 @@ return ok({
 function getPictures(){
   return ok(likeObject)
 }
+
+function fetchComments(){
+  return ok(comments)
+}
+
+
     function getUserById() {
      // if (!isLoggedIn()) return unauthorized();
 

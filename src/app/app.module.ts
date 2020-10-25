@@ -25,7 +25,6 @@ import { DayPictureComponent } from './app-components/day-picture/day-picture.co
 import { BioComponent } from './app-components/bio/bio.component';
 import { AuthService } from './shared/services/auth.service';
 import { UserService } from './shared/services/user.service';
-import { CommentsComponent } from './app-components/comments/comments.component';
 import { MoviesModule } from './movies/movies.module';
 import { DayDetailComponent } from './app-components/day-detail/day-detail.component';
 import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
@@ -42,7 +41,6 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
     SummaryPipe,
     DayPictureComponent,
     BioComponent,
-    CommentsComponent,
     DayDetailComponent
   ],
 
@@ -57,7 +55,6 @@ SharedModule,
     CalculatorModule
 
   ],
-  entryComponents:[CommentsComponent],
   providers: [
     fakeBackendProvider,
     errorInterceptor,

@@ -1,8 +1,10 @@
+import { User } from './../../../shared/models/User';
 import { MovieService } from './../../services/movie.service';
 import { Movie } from './../../models/Movie';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
+import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
   selector: 'app-movie-detail',
@@ -17,7 +19,15 @@ dropdown:boolean=false;
 episodes:any[]=[]
 episode:string=''
 title:string;
-  constructor (private route: ActivatedRoute, private movieService: MovieService) {}
+user:User;
+match:boolean;
+commentedMovie:any;
+  constructor (private route: ActivatedRoute, private movieService: MovieService, private auth: AuthService) {
+    this.auth.currentUser
+    .subscribe(user=>{
+      this.user=user;
+    })
+  }
   ngOnInit() {
      this.route.data.subscribe((data:any) =>{
         this.movie=Array.of(data)
@@ -26,6 +36,11 @@ title:string;
         this.seasons=+this.series['totalSeasons']
       })
       this.populateDropDown();
+      this.movieService.getComments()
+      .subscribe(data=>{
+        this.commentedMovie = data;
+        console.log(this.commentedMovie[0]['movie'])
+      })
 
     }
     searchByEpisode(){
@@ -44,6 +59,17 @@ populateDropDown(){
     this.episodes.push(i);
     console.log(this.episodes)
   }
+}
+
+post(comment: string){
+  let commentObj={
+    user: this.user.username,
+    comment: comment,
+    movie:this.title
+  }
+
+  this.movieService.addComment(commentObj)
+  .subscribe(data=>console.log(data))
 }
 
 }

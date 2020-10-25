@@ -17,6 +17,11 @@
      </div>
 
     </div>
+    <div class="col-md-4">
+      <h1>Comments</h1>
+      <input #comment class="form-control" (keyup.enter)="post(comment.value)">
+      <button mat-raised-button color="primary" (click)="post(comment.value)"></button>
+    </div>
   </div>
 
 </div>

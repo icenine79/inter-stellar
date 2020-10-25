@@ -42,5 +42,11 @@ export class MovieService {
     return this.http.get<Movie>("https://www.omdbapi.com/?t=" + name + "&plot=full&apikey=87c31e60");
 
   }
-
+  //FAKEBACKEND
+addComment(comment:any){
+  return this.http.post('/comment', comment);
+}
+getComments(){
+return this.http.get('/comments');
+}
 }
