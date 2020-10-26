@@ -54,7 +54,7 @@ login(credentials){
     return this.http.put(`/users/${id}`, params)
     .pipe(map(x=>{
       if(id===this.currentUserValue.id){
-        //updateLicalStorage
+        //updateLocalStorage
         const user = {...this.currentUser, ...params}
         localStorage.setItem('currentUser', JSON.stringify(user))
         //publish updated user

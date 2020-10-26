@@ -23,8 +23,8 @@ uniquePicture:any[]=[]
     this.nasaService.getPictures()
     .subscribe(data=>{
      this.picObj =data
-     this.uniquePicture.push(this.picObj[0]['picture'])
-     console.log(this.uniquePicture)
+     //this.uniquePicture.push(this.picObj[0]['picture'])
+     console.log(this.picObj)
     })
 
   // this.uniquePicture =[...new Set(this.picObj)]

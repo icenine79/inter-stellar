@@ -1,8 +1,8 @@
 import { NasaService } from './../../nasa/services/nasa.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
-import { first, switchMap } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 import { User } from '../../global-features/models/User';
 import { Form } from '../../global-features/dynamic-forms/Form';
 import { AuthService } from '../../shared/services/auth.service';
@@ -53,7 +53,7 @@ export class RegisterComponent extends Form implements OnInit {
       this.router.navigate(['/login']);
     });
   }
-  /*
+
 editUser() {
   this.auth.editUser(this.id, this.form.value)
     .pipe(first())
@@ -65,5 +65,5 @@ editUser() {
       error => {
         console.log(error)
       });
-} */
+}
 }

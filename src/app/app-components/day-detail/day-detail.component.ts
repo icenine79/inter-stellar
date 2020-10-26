@@ -14,6 +14,7 @@ dayPicture: any;
 user:User;
 picObj:any;
 uniquePicture:any[]=[];
+image:string;
   constructor (
     private route: ActivatedRoute,
     private location: Location,
@@ -44,13 +45,18 @@ goBack(){
   this.location.back();
 }
 save(image){
+  this.image=image
   let likeObj={
     user:this.user.username,
     picture: image
   }
 
   this.nasaService.likeDayPic(likeObj)
-  .subscribe(data=>console.log(data))
-
+  .subscribe(data=>{
+    console.log(data)
+    if(data['image']===this.image){}
+    //disable save button
+  })
 }
+//get pictures to see if there is repeated so the save button can be disabled
 }
