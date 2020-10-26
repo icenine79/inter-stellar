@@ -17,11 +17,13 @@
      </div>
 
     </div>
-    <div class="col-md-4">
-      <h1>Comments</h1>
-      <input #comment class="form-control" (keyup.enter)="post(comment.value)">
-      <button mat-raised-button color="primary" (click)="post(comment.value)"></button>
-    </div>
+<div class="col-md-6">
+  <ul class="lis-group" *ngIf="fetchedEpisode">
+    <li class="list-group-item" *ngFor="let f of fetchedEpisode">
+      {{f.Title}}
+    </li>
+  </ul>
+</div>
   </div>
 
 </div>

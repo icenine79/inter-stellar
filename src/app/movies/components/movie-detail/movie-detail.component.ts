@@ -20,8 +20,7 @@ episodes:any[]=[]
 episode:string=''
 title:string;
 user:User;
-match:boolean;
-commentedMovie:any;
+fetchedEpisode:any;
   constructor (private route: ActivatedRoute, private movieService: MovieService, private auth: AuthService) {
     this.auth.currentUser
     .subscribe(user=>{
@@ -36,17 +35,13 @@ commentedMovie:any;
         this.seasons=+this.series['totalSeasons']
       })
       this.populateDropDown();
-      this.movieService.getComments()
-      .subscribe(data=>{
-        this.commentedMovie = data;
-        console.log(this.commentedMovie[0]['movie'])
-      })
 
     }
     searchByEpisode(){
       this.movieService.getEpisode(this.title, this.episode)
       .subscribe(data=>{
-        console.log(data)
+       this.fetchedEpisode=data['Episodes'];
+       console.log(this.fetchedEpisode)
       })
     }
 
@@ -61,15 +56,6 @@ populateDropDown(){
   }
 }
 
-post(comment: string){
-  let commentObj={
-    user: this.user.username,
-    comment: comment,
-    movie:this.title
-  }
 
-  this.movieService.addComment(commentObj)
-  .subscribe(data=>console.log(data))
-}
 
 }

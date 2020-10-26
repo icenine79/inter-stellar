@@ -4,7 +4,7 @@ import { LoginComponent } from './app-components/login/login.component';
 import { HomeComponent } from './app-components/home/home.component';
 import { ShellComponent } from './app-components/shell/shell.component';
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, CanActivateChild } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './app-components/register/register.component';
 import { AuthGuardService } from './shared/services/guards/auth-guard.service';
 import { UserResolverService } from './shared/services/resolvers/user-resolver.service';
