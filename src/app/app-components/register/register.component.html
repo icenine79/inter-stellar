@@ -3,10 +3,12 @@
     <div class="col-md-6 offset-md-3">
 
 
-<mat-card class="example-card mat-elevation-z8">
-  <mat-card-header>
+<mat-card class="text-center mat-elevation-z8">
+  <mat-card-header >
 
-    <mat-card-title >Register</mat-card-title>
+    <mat-card-title *ngIf="!editMode" >Register</mat-card-title>
+    <mat-card-title *ngIf="editMode" >Edit your Credentials</mat-card-title>
+
   </mat-card-header>
   <img mat-card-image src="assets/registerdoor.jpg" class="img-fluid" alt="Photo of a Shiba Inu">
   <mat-card-content>
@@ -35,7 +37,8 @@
           </div>
         </div>
       </div>
-      <button type="submit" mat-raised-button color="primary">Sign In</button>
+      <button *ngIf="editMode" type="submit" mat-raised-button color="warn">Edit Credentials</button>
+      <button *ngIf="!editMode" type="submit" mat-raised-button color="primary">Sign In</button>
 </form>
   </mat-card-content>
  </mat-card>

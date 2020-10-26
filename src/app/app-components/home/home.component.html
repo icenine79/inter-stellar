@@ -1,14 +1,15 @@
 <main role="main">
   <section class="jumbotron bg text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Welcome to my PortFolio!</h1>
-      <p class="lead text-muted">
-        This small applications was built with the latest Angular version (10)
-        and it's main goal is to present my skills in this technonolgy
-      </p>
+      <h1 class="jumbotron-heading footer-title">Welcome to my PortFolio!</h1>
+      <h2  style="color:white;">
+        This small application was built with the latest Angular version (10)
+        and it's goal is to present my core skills in this technology.
+        Bellow you can register or login
+      </h2>
       <p>
-        <a routerLink="/login" class="btn btn-primary my-2">Login</a>
-        <a routerLink="/register" class="btn btn-secondary my-2">Register</a>
+        <a routerLink="/login" mat-raised-button color='primary'>Login</a>
+        <a routerLink="/register" mat-raised-button color="warn">Register</a>
       </p>
     </div>
   </section>
@@ -17,81 +18,37 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-4">
-          <mat-card class="mat-elevation-z8">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img
-              mat-card-image
-              src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-              alt="Photo of a Shiba Inu"
-            />
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct
-                spitz breeds of dog from Japan. A small, agile dog that copes
-                very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
+          <mat-card class="mat-elevation-z8 text-center info">
+            <mat-icon class="icon-home" aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+          <h1 style="margin-top:20px;">Modular Angular Architecture</h1>
+          <h3>In theory, you can put all your Angular code on one page and into one massive function, but it’s not recommended, nor is it an efficient way to structure your code and defeats the purpose of Angular’s existence.
+            Angular uses the concept of modules heavily as part of the framework’s architecture. This is in reference to the collection of code that has a single
+            reason for existing. Your Angular app is essentially made up of modules — some stand alone and some shared.
+            There are multiple ways to structure your modules within your application
+            and digging into the different architectural structures can also help determine how you’ll
+            scale your app as it grows. It can also help isolate your code and prevent code coupling from occurring.</h3>
           </mat-card>
         </div>
         <div class="col-md-4">
-          <mat-card class="mat-elevation-z8">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img
-              mat-card-image
-              src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-              alt="Photo of a Shiba Inu"
-            />
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct
-                spitz breeds of dog from Japan. A small, agile dog that copes
-                very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
+          <mat-card class="mat-elevation-z8 text-center info">
+            <mat-icon class="icon-home" aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+            <h1 style="margin-top:20px;">Route Guards, Pre-loads, Lazy-loading</h1>
+            <h3>If you have a login of some sort, you’re going to need route guards. The idea that you can protect certain views from unauthorized views is a must-have requirement in many applications. Route guards act as an interface between your router and the requested route. It is the decision maker that determines if a certain route is allowed access or not.
+               There’s a lot in the world of route guards to be explored — namely routing decisions based on things like token expiration, user roles authentications, and route securities.
+              Pre-loads and lazy-loading can also enhance your user’s experience by speeding up your application’s load time. It is also good to note that pre-loads and lazy-loading
+              are more than just deciding if you’re going to load a particular set of images or not. It can also enhance your bundled architectures and load different parts of your application
+              which may exist on different scopes and domains.</h3>
           </mat-card>
         </div>
         <div class="col-md-4">
-          <mat-card class="mat-elevation-z8">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <img
-              mat-card-image
-              src="https://material.angular.io/assets/img/examples/shiba2.jpg"
-              alt="Photo of a Shiba Inu"
-            />
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct
-                spitz breeds of dog from Japan. A small, agile dog that copes
-                very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>LIKE</button>
-              <button mat-button>SHARE</button>
-            </mat-card-actions>
+          <mat-card class="mat-elevation-z8 text-center info">
+            <mat-icon class="icon-home" aria-hidden="false" aria-label="Example home icon">home</mat-icon>
+            <h1 style="margin-top:20px;">Forms and Validation (Reactive Forms and Validators)</h1>
+            <h3>Forms are an inescapable part of any front-end development.
+              And with forms comes validation.
+              There are different ways to construct smart, data-driven forms when it comes to Angular. The most popular iteration of forms is reactive forms. However, there are other options out there, namely template-driven and custom validators.
+              Learning how validators work in conjunction with CSS will help speed up your workflow and turn your application into an error-handling ready space.</h3>
+
           </mat-card>
         </div>
       </div>
@@ -104,19 +61,18 @@
       <div class="row">
         <div class="col-md-6">
           <div class="mat-elevation-z10 img-wrapper">
-            <a routerLink="/day"><img class="img-fluid" src="assets/space.jpg" /></a>
-          </div>
+            <img class="img-fluid" src="assets/movies.jpg" />          </div>
         </div>
         <div class="col-md-6">
           <div class="vertical-center text-center inner-text-right">
-            <h1 class="heading inner-title">Nasa API</h1>
+            <h1 class="heading inner-title">Movies</h1>
             <p class="heading inner-p">
-              Visit the universe daily picture provided by NASA and read the
-              explanation of the phenomenon
+              Browse your favorites movies and series
             </p>
           </div>
         </div>
       </div>
+
       <!--ROW 2-->
       <div class="row">
         <div class="col-md-6">
@@ -138,13 +94,15 @@
       <div class="row">
         <div class="col-md-6">
           <div class="mat-elevation-z10 img-wrapper">
-            <img class="img-fluid" src="assets/movies.png" />          </div>
+            <a routerLink="/day"><img class="img-fluid" src="assets/space.jpg" /></a>
+          </div>
         </div>
         <div class="col-md-6">
           <div class="vertical-center text-center inner-text-right">
-            <h1 class="heading inner-title">Movies</h1>
+            <h1 class="heading inner-title">Nasa API</h1>
             <p class="heading inner-p">
-              Browse your favorites movies and series
+              Visit the universe daily picture provided by NASA and read the
+              explanation of the phenomenon
             </p>
           </div>
         </div>
