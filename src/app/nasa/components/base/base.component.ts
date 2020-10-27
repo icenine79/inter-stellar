@@ -15,6 +15,7 @@ pictureObject: DayPicture[];
 rover: RoverCamera[];
 dataSource: RoverCamera[];
 nodata:boolean;
+programPics:any;
 readonly cameras = cameras;
 readonly displayedColumns = displayedColumns;
 
@@ -26,7 +27,11 @@ constructor(private nasaService: NasaService) { }
       this.pictureObject=Array.of(data)
 
     })
-
+    this.nasaService.getNasaAlbum('Artemis')
+    .subscribe(data=>{
+      this.programPics = data;
+      console.log(this.programPics)
+    })
   }
 getPicByCamera(){
 }

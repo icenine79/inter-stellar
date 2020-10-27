@@ -9,7 +9,7 @@ import { User } from '../../global-features/models/User';
   providedIn: 'root'
 })
 export class NasaService {
-
+  //https://images-api.nasa.gov/album/Artemis
   constructor(private http: HttpClient) { }
 
 
@@ -46,6 +46,18 @@ getPicByCamera(camera: string){
   return res;
   }))
 }
+//ALbums, NASA missions
+
+getNasaAlbum(album:string){
+return this.http.get('https://images-api.nasa.gov/album/Artemis')
+.pipe(map(res=>{
+  let x = res['collection']['items']
+  return x
+}));
+}
+
+
+
 
 getUserById(id): Observable<User>{
   return this.http.get<User>(`/users/${id}`)
@@ -61,6 +73,8 @@ likeDayPic(likeObject: Object){
 getPictures(){
   return this.http.get('/pictures');
 }
-
+/* deletePicture(picture){
+return this.http.delete(`/pictures/${picture}`);
+} */
 
 }

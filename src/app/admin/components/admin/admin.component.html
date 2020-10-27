@@ -28,12 +28,15 @@
  <div class="container-fluid">
   <h1 style="margin-top: 20px;margin-bottom: 10px;" class="heading text-center">Gallery of Pictures</h1>
   <div class="row" >
-    <div class="col-md-4" *ngFor="let i of picObj">
+    <div class="col-md-4" *ngFor="let i of uniquePicture">
           <mat-card class="mat-elevation-z8" >
             <mat-card-header>
               <mat-card-title ></mat-card-title>
             </mat-card-header>
-            <img mat-card-image src="{{i.picture}}" alt="Picture of the day">
+            <img mat-card-image src="{{i}}" alt="Picture of the day">
+            <mat-card-actions>
+              <button mat-raised-button (click)="deletePicture(i)" color="warn">Delete</button>
+            </mat-card-actions>
           </mat-card>
   </div>
 </div>

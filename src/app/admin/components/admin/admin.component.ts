@@ -6,35 +6,47 @@ import { UserService } from '../../../shared/services/user.service';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.scss']
+  styleUrls: ['./admin.component.scss'],
 })
 export class AdminComponent implements OnInit {
-users:User[]=[]
-filteredUsers:User[]=[]
-picObj: any;
-uniquePicture:any[]=[]
-  constructor(private userService: UserService, private nasaService: NasaService) { }
+  users: User[] = [];
+  filteredUsers: User[] = [];
+  picObj: any;
+  aux: any;
+  uniquePicture:any;
+  constructor(
+    private userService: UserService,
+    private nasaService: NasaService
+  ) {}
 
   ngOnInit(): void {
-    this.userService.getAllUsers()
-    .subscribe((users:User[])=>{
-      this.users= this.filteredUsers = users;
-    })
-    this.nasaService.getPictures()
-    .subscribe(data=>{
-     this.picObj =data
-     //this.uniquePicture.push(this.picObj[0]['picture'])
-     console.log(this.picObj)
-    })
+    this.userService.getAllUsers().subscribe((users: User[]) => {
+      this.users = this.filteredUsers = users;
+    });
+    this.nasaService.getPictures().subscribe((data) => {
+      this.picObj = data;
+      this.uniquePicture = this.picObj.map(x=>x['picture'])
+      let x = new Set(this.uniquePicture)
+      this.uniquePicture = [...x]
+      console.log(this.uniquePicture);//ensure there are no repeated values
+    });
 
-  // this.uniquePicture =[...new Set(this.picObj)]
-  // console.log(this.uniquePicture)
   }
 
-  searchUser(query: string){
-    this.filteredUsers = (query)?
-    this.users.filter(user=>user.username.toLowerCase().includes(query.toLowerCase())):
-    this.users;
+  searchUser(query: string) {
+    this.filteredUsers = query
+      ? this.users.filter((user) =>
+          user.username.toLowerCase().includes(query.toLowerCase())
+        )
+      : this.users;
   }
-
+  deletePicture(picture) {
+    console.log(picture);
+    /*   this.nasaService.deletePicture(picture)
+    .subscribe(pic=>{
+      console.log(pic)
+      let index = this.picObj.indexOf(pic)
+      this.picObj.splice(index,1);
+    }) */
+  }
 }
