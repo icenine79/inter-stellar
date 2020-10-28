@@ -1,5 +1,4 @@
 import { SharedModule } from './shared/shared.module';
-import { CalculatorModule } from './calculator/calculator.module';
 import { MovieService } from './movies/services/movie.service';
 import { AdminModule } from './admin/admin.module';
 
@@ -51,9 +50,7 @@ import { JwtHelperService, JWT_OPTIONS  } from '@auth0/angular-jwt';
     NasaModule,
 SharedModule,
     AdminModule,
-    MoviesModule,
-    CalculatorModule
-
+    MoviesModule
   ],
   providers: [
     fakeBackendProvider,

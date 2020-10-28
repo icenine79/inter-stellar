@@ -28,14 +28,17 @@ fetchedEpisode:any;
     })
   }
   ngOnInit() {
-     this.route.data.subscribe((data:any) =>{
+     this.route.data.subscribe((data:Movie) =>{
         this.movie=Array.of(data)
         this.series=this.movie[0]['movie'];
         this.title=this.series['Title']
         this.seasons=+this.series['totalSeasons']
       })
       this.populateDropDown();
-
+      this.movieService.getComments()
+      .subscribe(data=>{
+     console.log(data)
+      })
     }
     searchByEpisode(){
       this.movieService.getEpisode(this.title, this.episode)
@@ -56,6 +59,15 @@ populateDropDown(){
   }
 }
 
+sendComment(comment:string){
+let commentObj ={
+  user:this.user.username,
+  comment:comment,
+  movie: this.title
+}
 
+this.movieService.addComment(commentObj)
+.subscribe(data=>console.log(data['comment']['movie']))
+}
 
 }

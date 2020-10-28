@@ -22,7 +22,7 @@ export class BaseMovieComponent implements OnInit {
 
   ngOnInit() {
 
-this.getMovie('Superman');//Default Movie
+this.getMovie('Taboo');//Default Movie
 
    }
 

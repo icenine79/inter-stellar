@@ -1,3 +1,4 @@
+import { EditGuardService } from './shared/services/guards/edit-guard.service';
 import { BioComponent } from './app-components/bio/bio.component';
 import { DayPictureComponent } from './app-components/day-picture/day-picture.component';
 import { LoginComponent } from './app-components/login/login.component';
@@ -10,10 +11,10 @@ import { AuthGuardService } from './shared/services/guards/auth-guard.service';
 import { UserResolverService } from './shared/services/resolvers/user-resolver.service';
 import { DayResolverService } from './app-components/day-resolver/day-resolver.service';
 import { DayDetailComponent } from './app-components/day-detail/day-detail.component';
+
 const admin = ()=> import('./admin/admin.module').then(x=>x.AdminModule)
 const nasa = ()=> import('./nasa/nasa.module').then(x=>x.NasaModule)
 const movies = ()=> import('./movies/movies.module').then(x=>x.MoviesModule)
-const calculator = ()=> import('./calculator/calculator.module').then(x=>x.CalculatorModule)
 
 
 const routes: Routes = [
@@ -27,14 +28,12 @@ const routes: Routes = [
         { path: 'nasa', loadChildren: nasa, canLoad: [AuthGuardService]},
         { path: 'admin', loadChildren: admin, canLoad: [AuthGuardService]},
         { path: 'movies', loadChildren: movies, canLoad: [AuthGuardService]},
-        { path: 'calculator', loadChildren: calculator, canLoad: [AuthGuardService]},
-
         { path: '', redirectTo: 'home', pathMatch: 'full' },
 
     ]
     },
     {path:'login', component: LoginComponent},
-    {path:'register', component: RegisterComponent},
+    {path:'register', component: RegisterComponent, canDeactivate: [EditGuardService]},
     {path:'edit/:id', component: RegisterComponent, resolve:{user: UserResolverService}}
 
 ];

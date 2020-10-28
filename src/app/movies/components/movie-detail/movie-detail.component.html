@@ -1,8 +1,9 @@
-<div class="container-fluid ">
+<div class="container-fluid " *ngIf="movie">
 
 
-  <div class="row" *ngIf="movie">
-    <div class="col-md-6" *ngFor="let m of movie">
+  <div class="row" *ngFor="let m of movie">
+    <div class="col-md-6" >
+
      <img class="img-fluid" src="{{m.movie.Poster}}">
      <div class="row">
       <mat-form-field *ngIf="dropdown"  style="width:50%;">
@@ -17,7 +18,28 @@
      </div>
 
     </div>
-<div class="col-md-6">
+    <div class="col-md-3">
+      <ul class="lis-group" >
+        <li class="list-group-item" >
+          {{m.movie.Title}}
+        </li>
+        <li class="list-group-item" >
+          Imdb Rating: {{m.movie.imdbRating}}
+        </li>
+        <li class="list-group-item" >
+          Cast: {{m.movie.Actors}}
+        </li>
+        <li class="list-group-item" >
+          Plot: {{m.movie.Plot}}
+        </li>
+      </ul>
+      <div class="comment-wrapper">
+        <h3>Some quick words to let us know your opinion!</h3>
+        <input type="text" #comment (keyup.enter)="sendComment(comment.value)" class="form-control">
+        <button mat-raised-button color="primary" (click)="sendComment(comment.value)" >Send</button>
+      </div>
+    </div>
+<div class="col-md-3">
   <ul class="lis-group" *ngIf="fetchedEpisode">
     <li class="list-group-item" *ngFor="let f of fetchedEpisode">
       {{f.Title}}
