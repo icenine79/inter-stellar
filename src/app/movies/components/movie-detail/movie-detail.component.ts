@@ -21,6 +21,9 @@ episode:string=''
 title:string;
 user:User;
 fetchedEpisode:any;
+fetchedComments:any;
+commentedMovie:string;
+comment:string;
   constructor (private route: ActivatedRoute, private movieService: MovieService, private auth: AuthService) {
     this.auth.currentUser
     .subscribe(user=>{
@@ -35,9 +38,15 @@ fetchedEpisode:any;
         this.seasons=+this.series['totalSeasons']
       })
       this.populateDropDown();
+
       this.movieService.getComments()
       .subscribe(data=>{
-     console.log(data)
+        this.fetchedComments = data
+        for(let i = 0; i<this.fetchedComments.length; i++){
+         this.commentedMovie= this.fetchedComments[i]['movie'];
+         this.comment = this.fetchedComments[i]['comment']
+        }
+       this.displayComments();
       })
     }
     searchByEpisode(){
@@ -67,7 +76,17 @@ let commentObj ={
 }
 
 this.movieService.addComment(commentObj)
-.subscribe(data=>console.log(data['comment']['movie']))
+.subscribe(data=>{
+  console.log(data['comment'])
+})
+}
+
+displayComments():boolean{
+  if(this.title===this.fetchedComments['movie']){
+    console.log(this.fetchedComments['movie'])
+    return true
+  }
+  return false
 }
 
 }

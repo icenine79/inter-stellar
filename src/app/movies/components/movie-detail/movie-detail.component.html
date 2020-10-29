@@ -37,6 +37,11 @@
         <h3>Some quick words to let us know your opinion!</h3>
         <input type="text" #comment (keyup.enter)="sendComment(comment.value)" class="form-control">
         <button mat-raised-button color="primary" (click)="sendComment(comment.value)" >Send</button>
+        <ul class="list-group" *ngIf="!displayComments()">
+          <li class="list-group-item" *ngFor="let f of fetchedComments">
+            {{f.comment}} by {{f.user}} {{f.movie}}
+          </li>
+        </ul>
       </div>
     </div>
 <div class="col-md-3">
