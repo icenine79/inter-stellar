@@ -33,7 +33,7 @@ const routes: Routes = [
     ]
     },
     {path:'login', component: LoginComponent},
-    {path:'register', component: RegisterComponent, canDeactivate: [EditGuardService]},
+    {path:'register', component: RegisterComponent,/*  canDeactivate: [EditGuardService] */},
     {path:'edit/:id', component: RegisterComponent, resolve:{user: UserResolverService}}
 
 ];

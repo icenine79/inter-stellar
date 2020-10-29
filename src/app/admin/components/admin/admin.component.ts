@@ -25,10 +25,11 @@ export class AdminComponent implements OnInit {
     });
     this.nasaService.getPictures().subscribe((data) => {
       this.picObj = data;
+      console.log(data)
       this.uniquePicture = this.picObj.map(x=>x['picture'])
       let x = new Set(this.uniquePicture)
       this.uniquePicture = [...x]
-      console.log(this.uniquePicture);//ensure there are no repeated values
+      console.log(this.uniquePicture);//ensure that there are no repeated values
     });
 
   }
