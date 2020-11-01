@@ -3,7 +3,6 @@ import { MovieService } from './../../services/movie.service';
 import { Movie } from './../../models/Movie';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { map } from 'rxjs/operators';
 import { AuthService } from '../../../shared/services/auth.service';
 
 @Component({
@@ -39,7 +38,7 @@ comment:string;
       })
       this.populateDropDown();
 
-      this.movieService.getComments()
+      /* this.movieService.getComments()
       .subscribe(data=>{
         this.fetchedComments = data
         for(let i = 0; i<this.fetchedComments.length; i++){
@@ -47,7 +46,7 @@ comment:string;
          this.comment = this.fetchedComments[i]['comment']
         }
        this.displayComments();
-      })
+      }) */
     }
     searchByEpisode(){
       this.movieService.getEpisode(this.title, this.episode)
@@ -81,12 +80,12 @@ this.movieService.addComment(commentObj)
 })
 }
 
-displayComments():boolean{
+/* displayComments():boolean{
   if(this.title===this.fetchedComments['movie']){
     console.log(this.fetchedComments['movie'])
     return true
   }
   return false
-}
+} */
 
 }
