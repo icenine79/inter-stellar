@@ -6,3 +6,7 @@ In current development, the purpose of this app is to show some of mine core ski
 
 It has a reactive a modular (stand alone and shared), reactive programming aproach and consumes the services of free APIS such as OpenMovieDataBase
 or NASA's API's
+
+Karmine and Jasmine tests havent been implemented yet
+
+UX/UI: Angular Material, ngBootstrap (for the grid system, mainly) and crafted CSS
